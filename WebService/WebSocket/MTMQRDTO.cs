@@ -4,10 +4,18 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace YiYao.DTO
+namespace WebService
 {
-    class MTMRegistDecEngine
+    class MTMQRDTO
     {
-
     }
+
+    public class QRRootobject
+    {
+        public string wechatid { get; set; }
+    }
+
+
+
+
 }

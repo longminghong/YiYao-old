@@ -9,7 +9,7 @@
     <Viewbox Stretch="Fill">
         <Canvas Width="1920" Height="1080">
             <local:NavigationManager  Width="1920" Height="1080" x:Name="root">
-                <TextBlock x:Name="debug" FontSize="18" Foreground="Red" Canvas.Left="100" Canvas.Top="100"  />
+                <!--<TextBlock x:Name="debug" FontSize="18" Foreground="Red" Canvas.Left="100" Canvas.Top="100"  />-->
             </local:NavigationManager>
             <TextBlock x:Name="messageText" Foreground="White" Width="100" FontSize="20" Height="50" TextAlignment="Center" Padding="0,10,0,0" IsHitTestVisible="False" Canvas.Left="900" Canvas.Top="921" Visibility="Collapsed">
                网络异常

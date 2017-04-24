@@ -35,9 +35,12 @@ namespace YiYao
         {
             websocketInstance = WebSocketSingleton.GetInstance();
             websocketInstance.start();
+            websocketInstance.pageCommandHandle += new WebSocketSingleton.SocketPageCommandHandleEvent(webSocketPageCommandEvents);
+
             InitializeComponent();
             mEventAggregator = eventAggregator;
             ImageSourceConverter imageConveter = new ImageSourceConverter();
+            NavigationManager manager = new NavigationManager();
             AppData.CurrentIDCard = new IDCard
             {
                 Name = "屈乐",
@@ -53,6 +56,70 @@ namespace YiYao
             mEventAggregator.GetEvent<WebErrorEvent>().Subscribe(OnWebError);
         }
 
+        void webSocketPageCommandEvents(MEMBERType sender) {
+
+            Console.WriteLine("recive page command");
+            Type pageType = null;
+            switch (sender)
+            {
+                case MEMBERType.MEMBBASIC:
+                    {// 新建会员采集基本信息
+
+                        Console.WriteLine("go to page A3");
+                        pageType = typeof(A3); 
+                    }
+                    break;
+                case MEMBERType.MEMBHEALTH:
+                    {//新建会员时，采集健康信息
+                        pageType = typeof(A5);
+                    }
+                    break;
+                case MEMBERType.MEMBDRUG:
+                    {//新建会员时，采集用药信息
+                        pageType = typeof(A6);
+                    }
+                    break;
+                case MEMBERType.MEMBDISEASE:
+                    {//新建会员时，采集疾病风险信息
+                        pageType = typeof(A7);
+                    }
+                    break;
+                case MEMBERType.MEMBQR:
+                    {//供会员关注和绑定的二维码
+                        pageType = typeof(A4);
+                    }
+                    break;
+                case MEMBERType.MEMBRISK:
+                    {//会员评估结果数据
+                        pageType = typeof(A8);
+                    }
+                    break;
+                case MEMBERType.MEMBRECOMM:
+                    {//推荐用药数据
+                        pageType = typeof(RecomMed);
+                    }
+                    break;
+                case MEMBERType.MEMBCART:
+                    {//药品购物车
+                        pageType = typeof(ShoppingCar);
+                    }
+                    break;
+                case MEMBERType.MEMBPLAN:
+                    {//会员用药计划
+                        pageType = typeof(A3);
+                    }
+                    break;
+                default:
+                    //
+                    break;
+            }
+            App.Current.Dispatcher.Invoke((Action)(() =>
+            {
+                root.GoToPage(pageType);
+            }));
+        }
+
+    
         private void MainWindow_Loaded(object sender, RoutedEventArgs e)
         {
             root.GoToPage(typeof(Login));

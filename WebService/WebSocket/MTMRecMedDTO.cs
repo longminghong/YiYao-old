@@ -4,14 +4,14 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace YiYao.DTO
+namespace WebService
 {
     class MTMRecMedDTO
     {
     }
 
 
-    public class Rootobject
+    public class Rootobject1
     {
         public Westdrugs westdrugs { get; set; }
         public Chineseherb[] chineseherb { get; set; }

@@ -151,14 +151,6 @@
     </Compile>
     <Compile Include="Converter\BoolToVisibilityValueConverter.cs" />
     <Compile Include="Converter\OppositeBooleanToVisibilityConverter.cs" />
-    <Compile Include="DTO\MTMCustInfo.cs" />
-    <Compile Include="DTO\MTMHealthCollectDTO.cs" />
-    <Compile Include="DTO\MTMIssueCollectDTO.cs" />
-    <Compile Include="DTO\MTMMedCollectDTO.cs" />
-    <Compile Include="DTO\MTMRecMedDTO.cs" />
-    <Compile Include="DTO\MTMRegistDecEngine.cs" />
-    <Compile Include="DTO\MTMResultDTO.cs" />
-    <Compile Include="DTO\MTMShopCarDTO.cs" />
     <Compile Include="HealthPop\HealthIndexBase.cs" />
     <Compile Include="HealthPop\HealthIndexRight.xaml.cs">
       <DependentUpon>HealthIndexRight.xaml</DependentUpon>
@@ -1860,6 +1852,9 @@
   </ItemGroup>
   <ItemGroup>
     <Resource Include="药物文字背景.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="屈乐.bmp" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

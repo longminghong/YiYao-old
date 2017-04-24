@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 /*
  * A3页面*
  */
-namespace YiYao.DTO
+namespace WebService
 {
     class MTMCustInfo
     {

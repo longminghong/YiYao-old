@@ -43,20 +43,6 @@ namespace YiYao
             GoToUI(ui);
         }
 
-        public bool SimulateImageClick(FrameworkElement control, MouseButtonEventHandler handler)
-        {
-            if (control == null || handler == null) return false;
-            int status = 0;
-            control.MouseEnter += delegate { if (status == 0) status = -1; };
-            control.MouseLeave += delegate { status = 0; };
-            control.MouseLeftButtonDown += delegate { status = 1; };
-            control.MouseLeftButtonUp += delegate (object sender, MouseButtonEventArgs e) {
-                if (status > 0)
-                    handler(sender, e);
-                status = 0;
-            };
-            return true;
-        }
     }
     
     public interface INavigable

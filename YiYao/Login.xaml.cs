@@ -41,8 +41,8 @@ namespace YiYao
              {
                  cardReader.CardRead -= CardReader_CardRead;
              };
-        
-            
+
+
         }
 
 
@@ -62,9 +62,9 @@ namespace YiYao
             var healthDataService = ServiceLocator.Current.GetInstance<HealthDataService>();
 
             var member = await healthDataService.GetMemberInfoBySsnAsync(AppData.CurrentIDCard.IDNumber);
-            if(member != null)
+            if (member != null)
             {
-                if(member.error.code == 0)
+                if (member.error.code == 0)
                 {
                     AppData.CurrentIDCard.Name = member.data.name;
                     var address = member.data.address;
@@ -80,7 +80,6 @@ namespace YiYao
             mIsChecking = false;
         }
 
-
         public void Start(object args)
         {
 
@@ -88,7 +87,7 @@ namespace YiYao
 
         public void Stop()
         {
-           
+
         }
 
         protected override void OnMouseDown(MouseButtonEventArgs e)
