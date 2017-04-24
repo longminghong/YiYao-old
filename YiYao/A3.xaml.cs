@@ -13,7 +13,7 @@ using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
 using CardReader;
-
+using WebService;
 
 namespace YiYao
 {
@@ -27,6 +27,8 @@ namespace YiYao
         public A3()
         {
             InitializeComponent();
+
+            WebSocketSingleton websocketInstance = WebSocketSingleton.GetInstance();
 
             this.Loaded += (s, e) =>
             {
