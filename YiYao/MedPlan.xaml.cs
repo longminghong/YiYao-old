@@ -20,12 +20,12 @@ using YiYao.Events;
 namespace YiYao
 {
     /// <summary>
-    /// A6.xaml 的交互逻辑
+    /// MedPlan.xaml 的交互逻辑
     /// </summary>
-    public partial class A6 : UserControl, INavigable
+    public partial class MedPlan : UserControl, INavigable
     {
-        MTMMedCollectDTO medCollectDTO;
-        public A6()
+        MTMMedPlanDTO reciveDTO;
+        public MedPlan()
         {
             InitializeComponent();
         }
@@ -36,7 +36,9 @@ namespace YiYao
 
                 //customInfo = (MTMCustInfo)args;
                 // to do 数据绑定
-                medCollectDTO = (MTMMedCollectDTO)args;
+                reciveDTO = (MTMMedPlanDTO)args;
+
+                mycontrol.ItemsSource = reciveDTO.plandrugs;
 
                 EventAggregator eventAggragator = ServiceLocator.Current.GetInstance<EventAggregator>();
                 eventAggragator.GetEvent<WebSocketEvent>().Subscribe(OnWebSocketEvent);
@@ -50,30 +52,10 @@ namespace YiYao
         }
         private void OnWebSocketEvent(object data)
         {
-            Console.WriteLine("data A6 ======== OK ");
+            Console.WriteLine("data shopping card ======== OK ");
 
-            if(String.Equals("yes", medCollectDTO.isallergy))
-                isallergy.Text = "药物过敏";
-            else
-                isallergy.Text = "没有药物过敏";
-            allergicdrug.Text = "过敏药物:"+ medCollectDTO.allergicdrug;
-
-            systolicpressure.Text = "收缩压(mmHg):"+ medCollectDTO.systolicpressure;
-            diastolicpressure.Text = "舒张压(mmHg):"+ medCollectDTO.diastolicpressure;
-
-            if (String.Equals("law-y", medCollectDTO.hypotensor))
-            {
-                hypotensor.Text = "已服用降压药";
-            }
-            else {
-                hypotensor.Text = "没有服用降压药";
-            }
-
-            this.DataContext = medCollectDTO.drugs;
+            reciveDTO = (MTMMedPlanDTO)data;
         }
-        private void jiantou1_png_MouseDown(object sender, MouseButtonEventArgs e)
-        {
-            (Parent as NavigationManager).GoToPage(typeof(A7));
-        }
+         
     }
 }

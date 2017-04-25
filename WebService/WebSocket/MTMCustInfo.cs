@@ -13,7 +13,7 @@ namespace WebService
     {
         public string name { get; set; }
         public string gender { get; set; }
-        public string dob { get; set; }
+        public string birthday { get; set; }
         public string phone { get; set; }
         public string pattern { get; set; }
         public string phonenumber { get; set; }

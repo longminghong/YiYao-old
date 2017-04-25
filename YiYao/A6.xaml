@@ -7,8 +7,32 @@
       mc:Ignorable="d" 
        d:DesignHeight="300" d:DesignWidth="300" Width="1920" Height="1080"
       >
+    <UserControl.Resources>
 
-    <Grid>
+        <DataTemplate x:Key="ItemsControlControlTemplate1" >
+            <Grid Background="White">
+                <TextBlock x:Name="med_name" HorizontalAlignment="Left" Text="{Binding name}" Height="45"  TextWrapping="Wrap" VerticalAlignment="Top" Width="334" Foreground="White" FontSize="24" Margin="27,45,0,0"/>
+                <TextBlock x:Name="med_type" HorizontalAlignment="Left" Text="{Binding drugstype}" Height="45"  TextWrapping="Wrap" VerticalAlignment="Top" Width="auto" Foreground="White" FontSize="24" Margin="366,45,0,0"/>
+                <TextBlock x:Name="med_lay"  HorizontalAlignment="Left" Text="{Binding regular}" Height="45" TextWrapping="Wrap" VerticalAlignment="Top" Width="auto" Foreground="White" FontSize="24" Margin="27,97,0,0"/>
+
+                <TextBlock x:Name="med_day_time_dosage" HorizontalAlignment="Left" Text="{Binding Name}" Height="45" TextWrapping="Wrap" VerticalAlignment="Top" Width="auto" Foreground="White" FontSize="24" Margin="355,97,0,0"/>
+                <TextBlock x:Name="med_taketime" HorizontalAlignment="Left" Text="{Binding Name}" Height="45" TextWrapping="Wrap"  VerticalAlignment="Top" Width="579" Foreground="White" FontSize="24" Margin="27,142,0,0"/>
+
+                <TextBlock HorizontalAlignment="Left" Height="45"  TextWrapping="Wrap" Text="预计时长" VerticalAlignment="Top" Width="auto" Foreground="White" FontSize="24" Margin="27,187,0,0"/>
+                <TextBlock x:Name="med_start_time" HorizontalAlignment="Left" Text="{Binding start}" Height="45"  TextWrapping="Wrap"  VerticalAlignment="Top" Width="auto" Foreground="White" FontSize="24" Margin="154,187,0,0"/>
+                <TextBlock x:Name="med_start_end" HorizontalAlignment="Left" Text="{Binding end}" Height="45"  TextWrapping="Wrap"  VerticalAlignment="Top" Width="auto" Foreground="White" FontSize="24" Margin="154,224,0,0"/>
+            </Grid>
+        </DataTemplate>
+        <DataTemplate x:Key="ItemTemplate">
+            <StackPanel>
+                <TextBlock Text="{Binding drugstype}"/>
+                <TextBlock Text="{Binding name}"/>
+                <TextBlock Text="{Binding regular}"/>
+            </StackPanel>
+        </DataTemplate>
+    </UserControl.Resources>
+
+    <Grid DataContext="{Binding Source={StaticResource MedItemsControlDataSource}}">
         <Image x:Name="医药界面_拷贝_jpg" Margin="10,0,-10,0" Source="/Images/RegisterSuccess/医药界面 拷贝.jpg" Stretch="Fill" RenderTransformOrigin="0.5,0.5">
             <Image.RenderTransform>
                 <TransformGroup>
@@ -68,17 +92,9 @@
         <TextBlock x:Name="diastolicpressure" HorizontalAlignment="Left" Height="44.363" Margin="988.2,460.788,0,0" TextWrapping="Wrap" Text="舒张压：100" VerticalAlignment="Top" Width="auto" Foreground="White" FontSize="24"/>
         <!--  -->
         <TextBlock HorizontalAlignment="Left" Height="45.625" Margin="705,514.387,0,0" TextWrapping="Wrap" Text="服用的药物清单" VerticalAlignment="Top" Width="384" Foreground="#FF94E9FF" FontSize="36"/>
+        <ItemsControl x:Name="medItemsControl"   Margin="689,618,593,249" ItemTemplate="{DynamicResource ItemTemplate}">
 
-        <TextBlock HorizontalAlignment="Left" Height="44.363" Margin="705,577.012,0,0" TextWrapping="Wrap" Text="药物名称：被他乐平" VerticalAlignment="Top" Width="auto" Foreground="White" FontSize="24"/>
-        <TextBlock HorizontalAlignment="Left" Height="44.363" Margin="988.2,577.012,0,0" TextWrapping="Wrap" Text="药物类型：降压，减脂" VerticalAlignment="Top" Width="auto" Foreground="White" FontSize="24"/>
-
-        <TextBlock HorizontalAlignment="Left" Height="44.363" Margin="705,626.375,0,0" TextWrapping="Wrap" Text="是否规律服药：是" VerticalAlignment="Top" Width="auto" Foreground="White" FontSize="24"/>
-        <TextBlock HorizontalAlignment="Left" Height="44.363" Margin="988.2,626.375,0,0" TextWrapping="Wrap" Text="用法用量：1天4次" VerticalAlignment="Top" Width="auto" Foreground="White" FontSize="24"/>
-        <TextBlock HorizontalAlignment="Left" Height="44.363" Margin="705,675.738,0,0" TextWrapping="Wrap" Text="服药时间：早餐后，睡觉前" VerticalAlignment="Top" Width="auto" Foreground="White" FontSize="24"/>
-
-        <TextBlock HorizontalAlignment="Left" Height="44.363" Margin="705,725.101,0,0" TextWrapping="Wrap" Text="预计时长" VerticalAlignment="Top" Width="auto" Foreground="White" FontSize="24"/>
-        <TextBlock HorizontalAlignment="Left" Height="44.363" Margin="825,770.074,0,0" TextWrapping="Wrap" Text="2017年1月开始" VerticalAlignment="Top" Width="auto" Foreground="White" FontSize="24"/>
-        <TextBlock HorizontalAlignment="Left" Height="44.363" Margin="825,819.437,0,0" TextWrapping="Wrap" Text="2017年9月结束" VerticalAlignment="Top" Width="auto" Foreground="White" FontSize="24"/>
+        </ItemsControl>
         <Image x:Name="jiantou1_png" HorizontalAlignment="Right" Height="76" Margin="0,0,55,484" Source="Images/Login/jiantou1.png" Stretch="Fill" VerticalAlignment="Bottom" Width="40" RenderTransformOrigin="0.5,0.5" MouseDown="jiantou1_png_MouseDown">
             <Image.RenderTransform>
                 <TransformGroup>

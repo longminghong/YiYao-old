@@ -1,9 +1,14 @@
-﻿<Application x:Class="YiYao.App"
+﻿<Application
              xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
              xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
              xmlns:local="clr-namespace:YiYao"
+            xmlns:BingDataSource="clr-namespace:Expression.Blend.SampleData.BingDataSource" xmlns:d="http://schemas.microsoft.com/expression/blend/2008" xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" xmlns:MedItemsControlDataSource="clr-namespace:Expression.Blend.SampleData.MedItemsControlDataSource" mc:Ignorable="d" x:Class="YiYao.App"
             >
     <Application.Resources>
+
+        <MedItemsControlDataSource:MedItemsControlDataSource x:Key="MedItemsControlDataSource" d:IsDataSource="True"/>
+
+        <BingDataSource:BingDataSource x:Key="BingDataSource" d:IsDataSource="True"/>
 
         <Style x:Key="KeypadButton" TargetType="{x:Type Button}">
             <Setter Property="Background" Value="#302f37"/>
@@ -63,7 +68,7 @@
                 </Setter.Value>
             </Setter>
         </Style>
-    
+
         <Style x:Key="PrimaryButton" TargetType="{x:Type Button}">
             <Setter Property="FocusVisualStyle" Value="{StaticResource FocusVisual}"/>
             <Setter Property="Foreground" Value="White"/>
@@ -87,7 +92,7 @@
                 </Setter.Value>
             </Setter>
         </Style>
-       
+
         <Style x:Key="PrimaryTextBoxStyle" TargetType="{x:Type TextBox}">
             <Setter Property="Foreground" Value="{DynamicResource {x:Static SystemColors.ControlTextBrushKey}}"/>
             <Setter Property="BorderThickness" Value="1"/>

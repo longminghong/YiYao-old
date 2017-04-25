@@ -210,13 +210,12 @@ namespace WebService
 
             object obj = null;
             switch (pageType)
-            {   
+            {
                 case MEMBERType.MEMBBASIC:
                     {// 新建会员采集基本信息
                         //pageType = typeof(A3);
                         MTMCustInfo info = JsonConvert.DeserializeObject<MTMCustInfo>(jsonContent, s_settings);
                         obj = info;
-                        Console.WriteLine("decode finish");
                     }
                     break;
                 case MEMBERType.MEMBHEALTH:
@@ -236,7 +235,7 @@ namespace WebService
                 case MEMBERType.MEMBDISEASE:
                     {//新建会员时，采集疾病风险信息
                         //pageType = typeof(A7);
-                        MTMIssueCollectDTO info = JsonConvert.DeserializeObject<MTMIssueCollectDTO>(jsonContent, s_settings);
+                        MTMDisDTO info = JsonConvert.DeserializeObject<MTMDisDTO>(jsonContent, s_settings);
                         obj = info;
                     }
                     break;
@@ -250,7 +249,7 @@ namespace WebService
                 case MEMBERType.MEMBRISK:
                     {//会员评估结果数据
                         //pageType = typeof(A8);
-                        MTMQRDTO info = JsonConvert.DeserializeObject<MTMQRDTO>(jsonContent, s_settings);
+                        MTMIssueCollectDTO info = JsonConvert.DeserializeObject<MTMIssueCollectDTO>(jsonContent, s_settings);
                         obj = info;
                     }
                     break;
@@ -262,12 +261,17 @@ namespace WebService
                 case MEMBERType.MEMBCART:
                     {//药品购物车
                         //pageType = typeof(ShoppingCar);
+                        MTMShopCarDTO info = JsonConvert.DeserializeObject<MTMShopCarDTO>(jsonContent, s_settings);
+                        obj = info;
                     }
                     break;
                 case MEMBERType.MEMBPLAN:
                     {//会员用药计划
-                        //pageType = typeof(A3);
-                    }
+                     //pageType = typeof(A3);
+
+                        MTMMedPlanDTO info = JsonConvert.DeserializeObject<MTMMedPlanDTO>(jsonContent, s_settings);
+                        obj = info;
+                    } 
                     break;
                 default:
                     //

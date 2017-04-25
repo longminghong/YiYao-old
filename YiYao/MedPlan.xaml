@@ -1,4 +1,4 @@
-﻿<UserControl x:Class="YiYao.ShoppingCar"
+﻿<UserControl x:Class="YiYao.MedPlan"
       xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
       xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
       xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
@@ -66,9 +66,9 @@
                         <Image HorizontalAlignment="Right" Stretch="Fill" Width="329.9"   Source="药物文字背景.png" Margin="0,15,10,32.4" />
                         <Image HorizontalAlignment="Left" Width="65.8" Height="Auto" Source="1.png" Margin="54.3,76.2,0,54.45" />
                         <TextBlock HorizontalAlignment="Left" Foreground="White" Height="16.8" Margin="185,30.3,0,0" TextWrapping="Wrap" Text="{Binding _class}" VerticalAlignment="Top" Width="100"/>
-                        
+
                         <!--<TextBlock HorizontalAlignment="Left" Foreground="White" Height="16.8" Margin="305,30.3,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="100"><Run Text="小"/><Run Text="类："/></TextBlock>-->
-                        
+
                         <TextBlock HorizontalAlignment="Left" Foreground="White" Height="16.8" Margin="185,51,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="100" Text="{Binding name}"><LineBreak/><Run/><Run Text="："/></TextBlock>
                         <TextBlock HorizontalAlignment="Left" Foreground="White" Height="16.8" Margin="185,70.8,0,0" TextWrapping="Wrap" Text="{Binding common_name}" VerticalAlignment="Top" Width="100"/>
                         <TextBlock HorizontalAlignment="Left" Foreground="White" Height="16.8" Margin="185,90.6,0,0" TextWrapping="Wrap" Text="{Binding specification}" VerticalAlignment="Top" Width="100"/>
@@ -81,17 +81,7 @@
 
         </ItemsControl>
 
-        <TextBlock HorizontalAlignment="Left" Height="45.625" Margin="90.6,114.637,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="384" Foreground="#FF42918A" FontSize="36" Text="购物车"/>
-        <Image x:Name="jiantou1_png" HorizontalAlignment="Right" Height="76" Margin="0,0,55,484" Source="Images/Login/jiantou1.png" Stretch="Fill" VerticalAlignment="Bottom" Width="40" RenderTransformOrigin="0.5,0.5" MouseDown="jiantou1_png_MouseDown">
-            <Image.RenderTransform>
-                <TransformGroup>
-                    <ScaleTransform/>
-                    <SkewTransform/>
-                    <RotateTransform Angle="180"/>
-                    <TranslateTransform/>
-                </TransformGroup>
-            </Image.RenderTransform>
-        </Image>
+        <TextBlock HorizontalAlignment="Left" Height="45.625" Margin="90.6,114.637,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="384" Foreground="#FF42918A" FontSize="36" Text="用药方案"/>
         <!-- 点阵地图-->
     </Grid>
 </UserControl>

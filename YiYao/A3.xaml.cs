@@ -88,10 +88,15 @@ namespace YiYao
         public void Start(object args)
         {
             if (null != args) {
+                try
+                {
+                    customInfo = (MTMCustInfo)args;
+                }
+                catch (Exception)
+                {
+                     
+                }
                 
-                customInfo = (MTMCustInfo)args;
-                // to do 数据绑定
-
                 EventAggregator eventAggragator = ServiceLocator.Current.GetInstance<EventAggregator>();
                 eventAggragator.GetEvent<WebSocketEvent>().Subscribe(OnWebSocketEvent);
             }
@@ -113,7 +118,7 @@ namespace YiYao
 
                 input_textblock_userinfo_genderr.Text = "性别: " + customInfo.gender;
 
-                input_textblock_userinfo_birthday.Text = "生日：" + customInfo.dob;
+                input_textblock_userinfo_birthday.Text = "生日：" + customInfo.birthday;
 
                 if("phone" == customInfo.pattern)
                     input_textblock_userinfo_contact.Text = "联系方式（手机）：" + customInfo.phone;

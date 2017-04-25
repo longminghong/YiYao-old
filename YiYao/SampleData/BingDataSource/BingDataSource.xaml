@@ -1,0 +1,19 @@
+﻿<!--
+   *********  请勿修改此文件   *********
+   此文件由设计工具再生成。更改
+   此文件可能会导致错误。
+-->
+<BingDataSource:BingDataSource xmlns:BingDataSource="clr-namespace:Expression.Blend.SampleData.BingDataSource">
+	<BingDataSource:BingDataSource.Collection>
+		<BingDataSource:Item Name="Aenean nam" Image="BingDataSource_Files\image01.png"/>
+		<BingDataSource:Item Name="Aliquam mauris class" Image="BingDataSource_Files\image02.png"/>
+		<BingDataSource:Item Name="Nullam sed maecenas aptent" Image="BingDataSource_Files\image03.png"/>
+		<BingDataSource:Item Name="Curae integer cras" Image="BingDataSource_Files\image04.png"/>
+		<BingDataSource:Item Name="Donec etiam auctor" Image="BingDataSource_Files\image05.png"/>
+		<BingDataSource:Item Name="Congue praesent fusce" Image="BingDataSource_Files\image01.png"/>
+		<BingDataSource:Item Name="Dis accumsan" Image="BingDataSource_Files\image02.png"/>
+		<BingDataSource:Item Name="Lorem est" Image="BingDataSource_Files\image03.png"/>
+		<BingDataSource:Item Name="Quisque duis bibendum nunc" Image="BingDataSource_Files\image04.png"/>
+		<BingDataSource:Item Name="Cursus amet" Image="BingDataSource_Files\image05.png"/>
+	</BingDataSource:BingDataSource.Collection>
+</BingDataSource:BingDataSource>

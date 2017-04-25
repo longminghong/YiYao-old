@@ -107,7 +107,7 @@ namespace YiYao
                     break;
                 case MEMBERType.MEMBPLAN:
                     {//会员用药计划
-                        pageType = typeof(A3);
+                        pageType = typeof(MedPlan);
                     }
                     break;
                 default:

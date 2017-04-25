@@ -24,6 +24,8 @@ namespace YiYao
     /// </summary>
     public partial class ShoppingCar : UserControl, INavigable
     {
+
+        MTMShopCarDTO reciveDTO;
         public ShoppingCar()
         {
             InitializeComponent();
@@ -35,6 +37,9 @@ namespace YiYao
 
                 //customInfo = (MTMCustInfo)args;
                 // to do 数据绑定
+                reciveDTO = (MTMShopCarDTO)args;
+
+                mycontrol.ItemsSource = reciveDTO.buydrugs;
 
                 EventAggregator eventAggragator = ServiceLocator.Current.GetInstance<EventAggregator>();
                 eventAggragator.GetEvent<WebSocketEvent>().Subscribe(OnWebSocketEvent);
@@ -48,7 +53,9 @@ namespace YiYao
         }
         private void OnWebSocketEvent(object data)
         {
-            Console.WriteLine("data ======== OK ");
+            Console.WriteLine("data shopping card ======== OK ");
+
+            reciveDTO = (MTMShopCarDTO)data;
         }
         private void jiantou1_png_MouseDown(object sender, MouseButtonEventArgs e)
         {

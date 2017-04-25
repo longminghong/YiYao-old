@@ -8,11 +8,6 @@ namespace WebService
 {
     public class MTMShopCarDTO
     {
-    }
-
-
-    public class Rootobject2
-    {
         public Buydrug[] buydrugs { get; set; }
     }
 

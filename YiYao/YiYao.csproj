@@ -180,6 +180,9 @@
     <Compile Include="HealthPop\MBHealthIndex.xaml.cs">
       <DependentUpon>MBHealthIndex.xaml</DependentUpon>
     </Compile>
+    <Compile Include="MedPlan.xaml.cs">
+      <DependentUpon>MedPlan.xaml</DependentUpon>
+    </Compile>
     <Compile Include="MTMControl.cs" />
     <Compile Include="QuanButton.xaml.cs">
       <DependentUpon>QuanButton.xaml</DependentUpon>
@@ -195,6 +198,12 @@
     </Compile>
     <Compile Include="RecomMed.xaml.cs">
       <DependentUpon>RecomMed.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="SampleData\BingDataSource\BingDataSource.xaml.cs">
+      <DependentUpon>BingDataSource.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="SampleData\MedItemsControlDataSource\MedItemsControlDataSource.xaml.cs">
+      <DependentUpon>MedItemsControlDataSource.xaml</DependentUpon>
     </Compile>
     <Compile Include="ScanDrug.xaml.cs">
       <DependentUpon>ScanDrug.xaml</DependentUpon>
@@ -311,6 +320,10 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
+    <Page Include="MedPlan.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="QuanButton.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
@@ -330,6 +343,14 @@
     <Page Include="RecomMed.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="SampleData\BingDataSource\BingDataSource.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="SampleData\MedItemsControlDataSource\MedItemsControlDataSource.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
     </Page>
     <Page Include="ScanDrug.xaml">
       <Generator>MSBuild:Compile</Generator>
@@ -1508,6 +1529,8 @@
     <Resource Include="VideoPlayer\volume.png" />
   </ItemGroup>
   <ItemGroup>
+    <None Include="SampleData\BingDataSource\BingDataSource.xsd" />
+    <None Include="SampleData\MedItemsControlDataSource\MedItemsControlDataSource.xsd" />
     <None Include="Video\珍视明护眼旗舰店.wmv">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </None>
@@ -1856,6 +1879,21 @@
   </ItemGroup>
   <ItemGroup>
     <Resource Include="屈乐.bmp" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="SampleData\BingDataSource\BingDataSource_Files\image01.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="SampleData\BingDataSource\BingDataSource_Files\image02.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="SampleData\BingDataSource\BingDataSource_Files\image03.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="SampleData\BingDataSource\BingDataSource_Files\image04.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="SampleData\BingDataSource\BingDataSource_Files\image05.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

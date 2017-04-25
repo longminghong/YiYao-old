@@ -94,10 +94,12 @@
         <Image Margin="486.6,572.526,198.2,372.374" Source="血脂曲线图.png" Stretch="Fill" Grid.Column="1"/>
         <Image Margin="109.4,572.526,575.4,372.374" Source="血压曲线图.png" Stretch="Fill" Grid.Column="1"/>
         <TextBlock HorizontalAlignment="Left" Height="36.563" Margin="109.4,748.037,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="117.6" Foreground="#FFF3FAFA" FontSize="24" FontWeight="Bold" Text="当前用药" Grid.Column="1"/>
+
         <Image Margin="472.2,831.2,357,163.8" Source="1.png" Stretch="Fill" Grid.Column="1"/>
         <Image Margin="647.4,832.2,181.8,163.8" Source="2.png" Stretch="Fill" Grid.Column="1"/>
         <Image Margin="292.8,832.2,536.4,163.8" Source="3.png" Stretch="Fill" Grid.Column="1"/>
         <Image Margin="109.4,831.2,719.8,163.8" Source="4.png" Stretch="Fill" Grid.Column="1"/>
+        
         <Ellipse Fill="#FFF90000" HorizontalAlignment="Left" Height="30" Margin="44.8,863.2,0,0" Stroke="Black" VerticalAlignment="Top" Width="30"/>
         <Ellipse Fill="#FFF3DC4F" HorizontalAlignment="Left" Height="30" Margin="44.8,913.2,0,0" Stroke="Black" VerticalAlignment="Top" Width="30"/>
         <Ellipse Fill="#FF1FEE47" HorizontalAlignment="Left" Height="30" Margin="44.8,958.4,0,0" Stroke="Black" VerticalAlignment="Top" Width="30"/>

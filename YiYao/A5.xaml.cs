@@ -60,19 +60,24 @@ namespace YiYao
 
                 if(1 == healthDTO.eatingpreference)
                     eatingpreference.Text = "饮食偏好：高盐";
-                else
+                else if(0 == healthDTO.eatingpreference)
                     eatingpreference.Text = "饮食偏好：低盐";
-
-                if(String.Equals("no", healthDTO.smoking) )
-                    smoking.Text = "是否抽烟：否";
                 else
+                    eatingpreference.Text = "饮食偏好：未知";
+
+                if (String.Equals("no", healthDTO.smoking))
+                    smoking.Text = "是否抽烟：否";
+                else if (String.Equals("yes", healthDTO.smoking))
                     smoking.Text = "是否抽烟：是";
+                else
+                    smoking.Text = "是否抽烟：未知";
 
                 if (String.Equals("no", healthDTO.drinking))
                     drinking.Text = "是否酗酒:否";
-                else
+                else if (String.Equals("yes", healthDTO.drinking))
                     drinking.Text = "是否酗酒:是";
-                
+                else
+                    drinking.Text = "是否酗酒:未知";
                 height.Text = "身高(cm):"+healthDTO.height;
                 weight.Text = "体重(KG):"+healthDTO.weight;
                 waist.Text = "腹围(cm):"+healthDTO.waist;
@@ -86,7 +91,6 @@ namespace YiYao
                 triglyceride.Text = "甘油三脂:" + healthDTO.triglyceride;
                 ldl.Text = "LDL-C:" + healthDTO.ldl;
                 hdl.Text = "HDL-C:" + healthDTO.hdl;
-
             }
         }
 
