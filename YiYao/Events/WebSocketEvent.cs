@@ -1,18 +1,13 @@
-﻿using System;
+﻿using Prism.Events;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace WebService
+namespace YiYao.Events
 {
-    public class MTMQRDTO
+    public class WebSocketEvent : PubSubEvent<object>
     {
-        public string wechatid { get; set; }
     }
-
-
-
-
-
 }

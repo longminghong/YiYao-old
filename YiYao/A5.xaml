@@ -62,27 +62,27 @@
         <TextBlock HorizontalAlignment="Left" Height="45.625" Margin="705,146.375,0,0" TextWrapping="Wrap" Text="健康数据采集" VerticalAlignment="Top" Width="384" Foreground="#FF42918A" FontSize="36"/>
         
         <TextBlock HorizontalAlignment="Left" Height="45.625" Margin="705,245.812,0,0" TextWrapping="Wrap" Text="基本健康数据采集" VerticalAlignment="Top" Width="384" Foreground="#FF94E9FF" FontSize="36"/>
-        <TextBlock HorizontalAlignment="Left" Height="44.363" Margin="705,305.437,0,0" TextWrapping="Wrap" Text="饮食偏好：高盐" VerticalAlignment="Top" Width="auto" Foreground="White" FontSize="24"/>
-        <TextBlock HorizontalAlignment="Left" Height="44.363" Margin="988.2,305.437,0,0" TextWrapping="Wrap" Text="抽烟：是" VerticalAlignment="Top" Width="auto" Foreground="White" FontSize="24"/>
-        <TextBlock HorizontalAlignment="Left" Height="44.363" Margin="1247.4,305.437,0,0" TextWrapping="Wrap" Text="酗酒：是" VerticalAlignment="Top" Width="auto" Foreground="White" FontSize="24"/>
-        <TextBlock HorizontalAlignment="Left" Height="44.363" Margin="705,354.8,0,0" TextWrapping="Wrap" Text="身高：187" VerticalAlignment="Top" Width="auto" Foreground="White" FontSize="24"/>
-        <TextBlock HorizontalAlignment="Left" Height="44.363" Margin="988.2,354.8,0,0" TextWrapping="Wrap" Text="体重：208" VerticalAlignment="Top" Width="auto" Foreground="White" FontSize="24"/>
-        <TextBlock HorizontalAlignment="Left" Height="44.363" Margin="1247.4,354.8,0,0" TextWrapping="Wrap" Text="腹围：166" VerticalAlignment="Top" Width="auto" Foreground="White" FontSize="24"/>
+        <TextBlock x:Name="eatingpreference" HorizontalAlignment="Left" Height="44.363" Margin="705,305.437,0,0" TextWrapping="Wrap" Text="饮食偏好：高盐" VerticalAlignment="Top" Width="auto" Foreground="White" FontSize="24"/>
+        <TextBlock x:Name="smoking" HorizontalAlignment="Left" Height="44.363" Margin="988.2,305.437,0,0" TextWrapping="Wrap" Text="抽烟：是" VerticalAlignment="Top" Width="auto" Foreground="White" FontSize="24"/>
+        <TextBlock x:Name="drinking" HorizontalAlignment="Left" Height="44.363" Margin="1247.4,305.437,0,0" TextWrapping="Wrap" Text="酗酒：是" VerticalAlignment="Top" Width="auto" Foreground="White" FontSize="24"/>
+        <TextBlock x:Name="height" HorizontalAlignment="Left" Height="44.363" Margin="705,354.8,0,0" TextWrapping="Wrap" Text="身高：187" VerticalAlignment="Top" Width="auto" Foreground="White" FontSize="24"/>
+        <TextBlock x:Name="weight" HorizontalAlignment="Left" Height="44.363" Margin="988.2,354.8,0,0" TextWrapping="Wrap" Text="体重：208" VerticalAlignment="Top" Width="auto" Foreground="White" FontSize="24"/>
+        <TextBlock x:Name="waist" HorizontalAlignment="Left" Height="44.363" Margin="1247.4,354.8,0,0" TextWrapping="Wrap" Text="腹围：166" VerticalAlignment="Top" Width="auto" Foreground="White" FontSize="24"/>
         <!--  -->
         <TextBlock HorizontalAlignment="Left" Height="45.625" Margin="705,404.163,0,0" TextWrapping="Wrap" Text="现场测量血压值" VerticalAlignment="Top" Width="384" Foreground="#FF94E9FF" FontSize="36"/>
-        <TextBlock HorizontalAlignment="Left" Height="44.363" Margin="705,460.788,0,0" TextWrapping="Wrap" Text="收缩压：133" VerticalAlignment="Top" Width="auto" Foreground="White" FontSize="24"/>
-        <TextBlock HorizontalAlignment="Left" Height="44.363" Margin="988.2,460.788,0,0" TextWrapping="Wrap" Text="舒张压：100" VerticalAlignment="Top" Width="auto" Foreground="White" FontSize="24"/>
+        <TextBlock x:Name="systolicpressure" HorizontalAlignment="Left" Height="44.363" Margin="705,460.788,0,0" TextWrapping="Wrap" Text="收缩压：133" VerticalAlignment="Top" Width="auto" Foreground="White" FontSize="24"/>
+        <TextBlock x:Name="diastolicpressure" HorizontalAlignment="Left" Height="44.363" Margin="988.2,460.788,0,0" TextWrapping="Wrap" Text="舒张压：100" VerticalAlignment="Top" Width="auto" Foreground="White" FontSize="24"/>
         <!--  -->
         <TextBlock HorizontalAlignment="Left" Height="45.625" Margin="705,514.387,0,0" TextWrapping="Wrap" Text="现场测量血糖值" VerticalAlignment="Top" Width="384" Foreground="#FF94E9FF" FontSize="36"/>
-        <TextBlock HorizontalAlignment="Left" Height="44.363" Margin="705,577.012,0,0" TextWrapping="Wrap" Text="空腹血糖：8.2" VerticalAlignment="Top" Width="auto" Foreground="White" FontSize="24"/>
-        <TextBlock HorizontalAlignment="Left" Height="44.363" Margin="988.2,577.012,0,0" TextWrapping="Wrap" Text="随机血糖：9.2" VerticalAlignment="Top" Width="auto" Foreground="White" FontSize="24"/>
-        <TextBlock HorizontalAlignment="Left" Height="44.363" Margin="1247.4,577.012,0,0" TextWrapping="Wrap" Text="狡猾血红蛋白：6.6" VerticalAlignment="Top" Width="auto" Foreground="White" FontSize="24"/>
+        <TextBlock x:Name="fastsugar"  HorizontalAlignment="Left" Height="44.363" Margin="705,577.012,0,0" TextWrapping="Wrap" Text="空腹血糖：8.2" VerticalAlignment="Top" Width="auto" Foreground="White" FontSize="24"/>
+        <TextBlock x:Name="randomsugar" HorizontalAlignment="Left" Height="44.363" Margin="988.2,577.012,0,0" TextWrapping="Wrap" Text="随机血糖：9.2" VerticalAlignment="Top" Width="auto" Foreground="White" FontSize="24"/>
+        <TextBlock x:Name="HbA1c"  HorizontalAlignment="Left" Height="44.363" Margin="1247.4,577.012,0,0" TextWrapping="Wrap" Text="狡猾血红蛋白：6.6" VerticalAlignment="Top" Width="auto" Foreground="White" FontSize="24"/>
         <!--  -->
         <TextBlock HorizontalAlignment="Left" Height="45.625" Margin="705,627.187,0,0" TextWrapping="Wrap" Text="现场测量血脂值" VerticalAlignment="Top" Width="384" Foreground="#FF94E9FF" FontSize="36"/>
-        <TextBlock HorizontalAlignment="Left" Height="44.363" Margin="705,686.812,0,0" TextWrapping="Wrap" Text="总胆固醇：6.9" VerticalAlignment="Top" Width="auto" Foreground="White" FontSize="24"/>
-        <TextBlock HorizontalAlignment="Left" Height="44.363" Margin="988.2,686.812,0,0" TextWrapping="Wrap" Text="甘油三脂：8.2" VerticalAlignment="Top" Width="auto" Foreground="White" FontSize="24"/>
-        <TextBlock HorizontalAlignment="Left" Height="44.363" Margin="1247.4,686.812,0,0" TextWrapping="Wrap" Text="LDL-C：4.4" VerticalAlignment="Top" Width="auto" Foreground="White" FontSize="24"/>
-        <TextBlock HorizontalAlignment="Left" Height="44.363" Margin="705,736.175,0,0" TextWrapping="Wrap" Text="HDL-C：4" VerticalAlignment="Top" Width="auto" Foreground="White" FontSize="24"/>
+        <TextBlock x:Name="cholesterol" HorizontalAlignment="Left" Height="44.363" Margin="705,686.812,0,0" TextWrapping="Wrap" Text="总胆固醇：6.9" VerticalAlignment="Top" Width="auto" Foreground="White" FontSize="24"/>
+        <TextBlock x:Name="triglyceride" HorizontalAlignment="Left" Height="44.363" Margin="988.2,686.812,0,0" TextWrapping="Wrap" Text="甘油三脂：8.2" VerticalAlignment="Top" Width="auto" Foreground="White" FontSize="24"/>
+        <TextBlock x:Name="ldl" HorizontalAlignment="Left" Height="44.363" Margin="1247.4,686.812,0,0" TextWrapping="Wrap" Text="LDL-C：4.4" VerticalAlignment="Top" Width="auto" Foreground="White" FontSize="24"/>
+        <TextBlock x:Name="hdl" HorizontalAlignment="Left" Height="44.363" Margin="705,736.175,0,0" TextWrapping="Wrap" Text="HDL-C：4" VerticalAlignment="Top" Width="auto" Foreground="White" FontSize="24"/>
         <Image x:Name="jiantou1_png" HorizontalAlignment="Right" Height="76" Margin="0,0,55,484" Source="Images/Login/jiantou1.png" Stretch="Fill" VerticalAlignment="Bottom" Width="40" RenderTransformOrigin="0.5,0.5" MouseDown="jiantou1_png_MouseDown">
             <Image.RenderTransform>
                 <TransformGroup>
@@ -93,6 +93,7 @@
                 </TransformGroup>
             </Image.RenderTransform>
         </Image>
+        <TextBlock x:Name="heartrate" HorizontalAlignment="Left" Height="45" Margin="1474,355,0,0" TextWrapping="Wrap" Text="心率：166" VerticalAlignment="Top" Width="auto" Foreground="White" FontSize="24"/>
 
         <!-- 这里放其他的详细内容 -->
 

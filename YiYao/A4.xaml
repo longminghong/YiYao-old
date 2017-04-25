@@ -7,7 +7,7 @@
       mc:Ignorable="d" 
        d:DesignHeight="300" d:DesignWidth="300" Width="1920" Height="1080"
       >
-
+    
     <Grid>
         <Image x:Name="医药界面_拷贝_jpg" Margin="10,0,-10,0" Source="/Images/RegisterSuccess/医药界面 拷贝.jpg" Stretch="Fill" RenderTransformOrigin="0.5,0.5">
             <Image.RenderTransform>

@@ -151,6 +151,7 @@
     </Compile>
     <Compile Include="Converter\BoolToVisibilityValueConverter.cs" />
     <Compile Include="Converter\OppositeBooleanToVisibilityConverter.cs" />
+    <Compile Include="Events\WebSocketEvent.cs" />
     <Compile Include="HealthPop\HealthIndexBase.cs" />
     <Compile Include="HealthPop\HealthIndexRight.xaml.cs">
       <DependentUpon>HealthIndexRight.xaml</DependentUpon>

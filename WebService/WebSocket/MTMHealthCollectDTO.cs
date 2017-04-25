@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace WebService
 {
-    class MTMHealthCollectDTO
+    public class MTMHealthCollectDTO
     {
         public int eatingpreference { get; set; }
         public string smoking { get; set; }

@@ -8,5 +8,6 @@ namespace WebService
 {
     class MTMResultDTO
     {
+
     }
 }

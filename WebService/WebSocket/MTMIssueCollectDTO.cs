@@ -7,15 +7,9 @@ using System.Threading.Tasks;
  * 
  * A6*
  */
-namespace YWebService
+namespace WebService
 {
-    class MTMIssueCollectDTO
-    {
-
-    }
-
-
-    public class IssueRootobject
+    public class MTMIssueCollectDTO
     {
         public string risklevel { get; set; }
         public string[] disease { get; set; }
@@ -32,6 +26,9 @@ namespace YWebService
         public string thteehight { get; set; }
         public string lifestyle { get; set; }
     }
+
+
+    
 
     public class Diseasequestion
     {

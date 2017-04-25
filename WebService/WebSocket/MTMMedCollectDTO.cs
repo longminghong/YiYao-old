@@ -6,12 +6,7 @@ using System.Threading.Tasks;
 
 namespace WebService
 {
-    class MTMMedCollectDTO
-    {
-    }
-
-
-    public class Rootobject
+    public class MTMMedCollectDTO
     {
         public string isallergy { get; set; }
         public Allergicdrug[] allergicdrug { get; set; }

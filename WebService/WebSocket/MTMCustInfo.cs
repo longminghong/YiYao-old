@@ -9,16 +9,25 @@ using System.Threading.Tasks;
  */
 namespace WebService
 {
-    class MTMCustInfo
+    public class MTMCustInfo
     {
         public string name { get; set; }
         public string gender { get; set; }
         public string dob { get; set; }
         public string phone { get; set; }
+        public string pattern { get; set; }
+        public string phonenumber { get; set; }
+        
+        public string phonezone { get; set; }
+        public string extension { get; set; }
+        
         public string cardno { get; set; }
         public string carddate { get; set; }
         public string ssn { get; set; }
         public string email { get; set; }
-        public string address { get; set; }
+        public string detailaddress { get; set; }
+        public string province { get; set; }
+        public string city { get; set; }
+        public string district { get; set; }
     }
 }

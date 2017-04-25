@@ -43,6 +43,12 @@ namespace YiYao
             GoToUI(ui);
         }
 
+        public void GoToPageWithArgs(Type type,object obj) {
+
+            var ui = (UIElement)Activator.CreateInstance(type);
+            if(mCurUI != ui)
+                GoToUI(ui, obj);
+        }
     }
     
     public interface INavigable

@@ -22,25 +22,25 @@ public enum MEMBERType
 
 namespace WebService
 {
-    
+
     public class WebSocketSingleton
     {
-        public delegate void SocketPageCommandHandleEvent(MEMBERType sender);
+        public delegate void SocketPageCommandHandleEvent(MEMBERType sender,object obj);
         public SocketPageCommandHandleEvent pageCommandHandle;
-        
+
         private static WebSocketSingleton instance;
         private static object _lock = new object();
 
         private WebSocketSingleton()
         {
-            
+
         }
 
         public void SetCallback(SocketPageCommandHandleEvent callback)
         {
             pageCommandHandle = callback;
         }
-        
+
         public static WebSocketSingleton GetInstance()
         {
             if (instance == null)
@@ -73,7 +73,7 @@ namespace WebService
             Console.WriteLine("Subscribed for id = " + e.MessageId);
         }
         // 接受消息后的操作
-         void client_MqttMsgPublishReceived(object sender, MqttMsgPublishEventArgs e)
+        void client_MqttMsgPublishReceived(object sender, MqttMsgPublishEventArgs e)
         {
             string responseContent = null;
 
@@ -87,50 +87,44 @@ namespace WebService
             {
                 if (!string.IsNullOrWhiteSpace(responseContent))
                 {
-
                     //JObject jObject = JObject.Parse("{'ID':'001','Mark':'Hello Word'}");
-                    
+
                     JObject jObject = JObject.Parse(responseContent);
 
                     JToken jTypeToken = jObject.GetValue("type");
                     JToken jDataToken = jObject.GetValue("data");
 
-                    Console.WriteLine("json finish"+ jTypeToken.ToString());
+                    Console.WriteLine("json finish" + jTypeToken.ToString());
 
                     MEMBERType pageType;
 
                     pageType = deserializeDataType(jTypeToken.ToString());
 
                     Console.WriteLine(jDataToken.ToString());
+                    object obj;
+                    obj = invokeDataReciveCallBack(pageType, jDataToken.ToString());
 
-                    pageCommandHandle.Invoke(pageType);
-
-                    //if (pageType == MEMBERType.MEMBBASIC)
-                    //{
-                    //   var result =  jObject.ToObject<MTMWebServerDataResult<MTMMedPlanDTO>>();
-                    //    commandHandle.Invoke(null);
-                    //}
-
+                    pageCommandHandle.Invoke(pageType, obj);
                 }
             }
             catch (Exception ex)
             {
                 Console.WriteLine("webSocket:" + ex.InnerException);
             }
-            
+
         }
         // 发布消息后的操作
-         void client_MqttMsgPublished(object sender, MqttMsgPublishedEventArgs e)
+        void client_MqttMsgPublished(object sender, MqttMsgPublishedEventArgs e)
         {
             Console.WriteLine("MessageId = " + e.MessageId + " Published = " + e.IsPublished);
         }
         // 关闭连接后的操作
-         void client_ConnectionClosed(object sender, EventArgs e)
+        void client_ConnectionClosed(object sender, EventArgs e)
         {
             Console.WriteLine("connect closed");
         }
         // 取消sub后的操作
-         void client_MqttMsgUnsubscribed(object sender, MqttMsgUnsubscribedEventArgs e)
+        void client_MqttMsgUnsubscribed(object sender, MqttMsgUnsubscribedEventArgs e)
         {
             Console.WriteLine("connect closed");
         }
@@ -138,7 +132,7 @@ namespace WebService
         public void start()
         {
             Console.WriteLine("web socket run.");
-            
+
             string enpoint = "mqf-bym08ztgwf.mqtt.aliyuncs.com";
             int port = 80;
             string user = "LTAIyNRr5QPLury7";
@@ -207,9 +201,79 @@ namespace WebService
                 {
                     memberType = MEMBERType.MEMBPLAN;
                 }
-                
+
             }
-                return memberType;
+            return memberType;
+        }
+
+        static object invokeDataReciveCallBack(MEMBERType pageType,String jsonContent) {
+
+            object obj = null;
+            switch (pageType)
+            {   
+                case MEMBERType.MEMBBASIC:
+                    {// 新建会员采集基本信息
+                        //pageType = typeof(A3);
+                        MTMCustInfo info = JsonConvert.DeserializeObject<MTMCustInfo>(jsonContent, s_settings);
+                        obj = info;
+                        Console.WriteLine("decode finish");
+                    }
+                    break;
+                case MEMBERType.MEMBHEALTH:
+                    {//新建会员时，采集健康信息
+                        //pageType = typeof(A5);
+                        MTMHealthCollectDTO info = JsonConvert.DeserializeObject<MTMHealthCollectDTO>(jsonContent, s_settings);
+                        obj = info;
+                    }
+                    break;
+                case MEMBERType.MEMBDRUG:
+                    {//新建会员时，采集用药信息
+                        //pageType = typeof(A6);
+                        MTMMedCollectDTO info = JsonConvert.DeserializeObject<MTMMedCollectDTO>(jsonContent, s_settings);
+                        obj = info;
+                    }
+                    break;
+                case MEMBERType.MEMBDISEASE:
+                    {//新建会员时，采集疾病风险信息
+                        //pageType = typeof(A7);
+                        MTMIssueCollectDTO info = JsonConvert.DeserializeObject<MTMIssueCollectDTO>(jsonContent, s_settings);
+                        obj = info;
+                    }
+                    break;
+                case MEMBERType.MEMBQR:
+                    {//供会员关注和绑定的二维码
+                        //pageType = typeof(A4);
+                        MTMQRDTO info = JsonConvert.DeserializeObject<MTMQRDTO>(jsonContent, s_settings);
+                        obj = info;
+                    }
+                    break;
+                case MEMBERType.MEMBRISK:
+                    {//会员评估结果数据
+                        //pageType = typeof(A8);
+                        MTMQRDTO info = JsonConvert.DeserializeObject<MTMQRDTO>(jsonContent, s_settings);
+                        obj = info;
+                    }
+                    break;
+                case MEMBERType.MEMBRECOMM:
+                    {//推荐用药数据
+                        //pageType = typeof(RecomMed);
+                    }
+                    break;
+                case MEMBERType.MEMBCART:
+                    {//药品购物车
+                        //pageType = typeof(ShoppingCar);
+                    }
+                    break;
+                case MEMBERType.MEMBPLAN:
+                    {//会员用药计划
+                        //pageType = typeof(A3);
+                    }
+                    break;
+                default:
+                    //
+                    break;
+            }
+            return obj;
         }
     }
 }

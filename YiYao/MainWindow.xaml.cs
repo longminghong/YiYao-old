@@ -19,6 +19,7 @@ using System.Windows.Shapes;
 using WebService.Event;
 using YiYao.Util;
 using WebService;
+using YiYao.Events;
 
 namespace YiYao
 {
@@ -56,7 +57,7 @@ namespace YiYao
             mEventAggregator.GetEvent<WebErrorEvent>().Subscribe(OnWebError);
         }
 
-        void webSocketPageCommandEvents(MEMBERType sender) {
+        void webSocketPageCommandEvents(MEMBERType sender,object deSerDataObject) {
 
             Console.WriteLine("recive page command");
             Type pageType = null;
@@ -115,7 +116,9 @@ namespace YiYao
             }
             App.Current.Dispatcher.Invoke((Action)(() =>
             {
-                root.GoToPage(pageType);
+                root.GoToPageWithArgs(pageType, deSerDataObject);
+
+                mEventAggregator.GetEvent<WebSocketEvent>().Publish(deSerDataObject);
             }));
         }
 
