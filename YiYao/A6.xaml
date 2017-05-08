@@ -7,29 +7,17 @@
       mc:Ignorable="d" 
        d:DesignHeight="300" d:DesignWidth="300" Width="1920" Height="1080"
       >
+
+
     <UserControl.Resources>
 
-        <DataTemplate x:Key="ItemsControlControlTemplate1" >
-            <Grid Background="White">
-                <TextBlock x:Name="med_name" HorizontalAlignment="Left" Text="{Binding name}" Height="45"  TextWrapping="Wrap" VerticalAlignment="Top" Width="334" Foreground="White" FontSize="24" Margin="27,45,0,0"/>
-                <TextBlock x:Name="med_type" HorizontalAlignment="Left" Text="{Binding drugstype}" Height="45"  TextWrapping="Wrap" VerticalAlignment="Top" Width="auto" Foreground="White" FontSize="24" Margin="366,45,0,0"/>
-                <TextBlock x:Name="med_lay"  HorizontalAlignment="Left" Text="{Binding regular}" Height="45" TextWrapping="Wrap" VerticalAlignment="Top" Width="auto" Foreground="White" FontSize="24" Margin="27,97,0,0"/>
+        <local:DrugTypeConverter x:Key="drugTypeeConverter"></local:DrugTypeConverter>
+        <local:DrugTimeCoverter x:Key="drugTimeConverter"></local:DrugTimeCoverter>
+        <local:DrugUsedCoverter x:Key="drugUsedCoverter"></local:DrugUsedCoverter>
+        <local:DrugRegularCovert x:Key="drugRegularCovert"></local:DrugRegularCovert>
+        <local:DrugAllergicdrugCovert x:Key="drugAllergicdrugCovert"></local:DrugAllergicdrugCovert>
+        
 
-                <TextBlock x:Name="med_day_time_dosage" HorizontalAlignment="Left" Text="{Binding Name}" Height="45" TextWrapping="Wrap" VerticalAlignment="Top" Width="auto" Foreground="White" FontSize="24" Margin="355,97,0,0"/>
-                <TextBlock x:Name="med_taketime" HorizontalAlignment="Left" Text="{Binding Name}" Height="45" TextWrapping="Wrap"  VerticalAlignment="Top" Width="579" Foreground="White" FontSize="24" Margin="27,142,0,0"/>
-
-                <TextBlock HorizontalAlignment="Left" Height="45"  TextWrapping="Wrap" Text="预计时长" VerticalAlignment="Top" Width="auto" Foreground="White" FontSize="24" Margin="27,187,0,0"/>
-                <TextBlock x:Name="med_start_time" HorizontalAlignment="Left" Text="{Binding start}" Height="45"  TextWrapping="Wrap"  VerticalAlignment="Top" Width="auto" Foreground="White" FontSize="24" Margin="154,187,0,0"/>
-                <TextBlock x:Name="med_start_end" HorizontalAlignment="Left" Text="{Binding end}" Height="45"  TextWrapping="Wrap"  VerticalAlignment="Top" Width="auto" Foreground="White" FontSize="24" Margin="154,224,0,0"/>
-            </Grid>
-        </DataTemplate>
-        <DataTemplate x:Key="ItemTemplate">
-            <StackPanel>
-                <TextBlock Text="{Binding drugstype}"/>
-                <TextBlock Text="{Binding name}"/>
-                <TextBlock Text="{Binding regular}"/>
-            </StackPanel>
-        </DataTemplate>
     </UserControl.Resources>
 
     <Grid DataContext="{Binding Source={StaticResource MedItemsControlDataSource}}">
@@ -78,23 +66,84 @@
         </Image>
         <Image Margin="534.2,151.375,537.8,797.625" Source="A4-top.png" Stretch="None"/>
 
-        <Image Margin="592,868.8,629,164.2" Source="A4-bottom.png" Stretch="Fill"/>
+        <Image Margin="592,868.8,629,191.821" Source="A4-bottom.png" Stretch="Fill"/>
         <!--  -->
         <TextBlock HorizontalAlignment="Left" Height="45.625" Margin="705,146.375,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="384" Foreground="#FF42918A" FontSize="36"><Run Text="用药信息"/><Run Text="数据采集"/></TextBlock>
         <!--  -->
         <TextBlock HorizontalAlignment="Left" Height="45.625" Margin="705,245.812,0,0" TextWrapping="Wrap" Text="过敏数据" VerticalAlignment="Top" Width="384" Foreground="#FF94E9FF" FontSize="36"/>
-        <TextBlock x:Name="isallergy" HorizontalAlignment="Left" Height="44.363" Margin="705,305.437,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="auto" Foreground="White" FontSize="24"><Run Text="是否会药物过敏："/><Run Text="是"/></TextBlock>
-        <TextBlock x:Name="hypotensor" HorizontalAlignment="Left" Height="44.363" Margin="705,354.8,0,0" TextWrapping="Wrap" Text="是否已服用降压药；是" VerticalAlignment="Top" Width="auto" Foreground="White" FontSize="24"/>
 
+        <TextBlock x:Name="isallergy" Text="{Binding allergicdrug,Converter={StaticResource drugTypeeConverter}}"  HorizontalAlignment="Left" Height="99" Margin="705,305,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="638" Foreground="White" FontSize="24">
+            <!--<Run Text="药物过敏："/>-->
+            <!--<Run Text="{Binding allergicdrug,Converter={StaticResource drugAllergicdrugCovert}}"/>-->
+        </TextBlock>
+        
         <!--  -->
         <TextBlock HorizontalAlignment="Left" Height="45.625" Margin="705,404.163,0,0" TextWrapping="Wrap" Text="历史最高血压" VerticalAlignment="Top" Width="384" Foreground="#FF94E9FF" FontSize="36"/>
-        <TextBlock x:Name="systolicpressure" HorizontalAlignment="Left" Height="44.363" Margin="705,460.788,0,0" TextWrapping="Wrap" Text="收缩压：130" VerticalAlignment="Top" Width="auto" Foreground="White" FontSize="24"/>
-        <TextBlock x:Name="diastolicpressure" HorizontalAlignment="Left" Height="44.363" Margin="988.2,460.788,0,0" TextWrapping="Wrap" Text="舒张压：100" VerticalAlignment="Top" Width="auto" Foreground="White" FontSize="24"/>
+        <TextBlock x:Name="systolicpressure" HorizontalAlignment="Left" Height="44.363" Margin="705,460.788,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="auto" Foreground="White" FontSize="24">
+            <!--<Run  Text="收缩压："/>
+            <Run Text="{Binding systolicpressure}"/>-->
+        </TextBlock>
+        <TextBlock x:Name="diastolicpressure" HorizontalAlignment="Left" Height="44.363" Margin="988.2,460.788,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="auto" Foreground="White" FontSize="24">
+            <!--<Run Text="舒张压: "/>
+            <Run Text="{Binding diastolicpressure}"/>-->
+        </TextBlock>
         <!--  -->
-        <TextBlock HorizontalAlignment="Left" Height="45.625" Margin="705,514.387,0,0" TextWrapping="Wrap" Text="服用的药物清单" VerticalAlignment="Top" Width="384" Foreground="#FF94E9FF" FontSize="36"/>
-        <ItemsControl x:Name="medItemsControl"   Margin="689,618,593,249" ItemTemplate="{DynamicResource ItemTemplate}">
+        <TextBlock HorizontalAlignment="Left" Height="45.625" Margin="705,504.028,0,0" TextWrapping="Wrap" Text="服用的药物清单" VerticalAlignment="Top" Width="384" Foreground="#FF94E9FF" FontSize="36"/>
+        <!--<ItemsControl x:Name="medItemsControl"   Margin="689,618,593,249" ItemTemplate="{DynamicResource ItemTemplate}">
+            
+        </ItemsControl>-->
+        <ScrollViewer x:Name="scrollviewer" Margin="705,559.36,577,216.2" MaxHeight="400
+                      " PanningMode="VerticalOnly" VerticalScrollBarVisibility="Visible" CanContentScroll="True" >
 
-        </ItemsControl>
+
+            <ItemsControl x:Name="mycontrol"  Background="Transparent"> 
+
+                <ItemsControl.ItemTemplate>
+                    <DataTemplate>
+                        <Grid Background="Transparent" Width="650" Height="300" HorizontalAlignment="Left" VerticalAlignment="Center">
+
+                            <TextBlock x:Name="med_name" HorizontalAlignment="Left"  Height="45"  TextWrapping="Wrap" VerticalAlignment="Top" Width="310.735" Foreground="White" FontSize="24" Margin="30.453,13.923,0,0">
+                            <Run Text="药物名称："/>
+                            <Run Text="{Binding name}"/>
+                            </TextBlock>
+                            <!--药品类型-->
+                            <TextBlock x:Name="med_type" HorizontalAlignment="Left" Text="{Binding drugstype,Converter={StaticResource drugTypeeConverter}}" Height = "30"  TextWrapping="Wrap" VerticalAlignment="Top" Width="274" Foreground="White" FontSize="24" Margin="341.188,13.923,0,0">
+                            <!--<Run  Text="药物类型："/>-->
+                            <!--<Run  Text="{Binding regular}"/>-->
+                            </TextBlock>
+
+                            <TextBlock x:Name="med_lay"  HorizontalAlignment="Left" Height="45" TextWrapping="Wrap" VerticalAlignment="Top" Width="auto" Foreground="White" FontSize="24" Margin="27,55.564,0,0">
+                            <Run  Text="是否规律用药："/>
+                            <Run  Text="{Binding regular,Converter={StaticResource drugRegularCovert}}"/>
+                            </TextBlock>
+                            <!--用药用量-->
+                            <TextBlock x:Name="med_day_time_dosage" HorizontalAlignment="Left" Height="45" TextWrapping="Wrap" VerticalAlignment="Top" Width="300" Foreground="White" FontSize="24" Margin="30.453,97,0,0">
+                             
+                            <Run  Text="{Binding useddosage,Converter={StaticResource drugUsedCoverter}}"/>
+                            </TextBlock>
+
+                            <TextBlock x:Name="med_taketime" HorizontalAlignment="Left" Height="45" TextWrapping="Wrap"  VerticalAlignment="Top" Width="579" Foreground="White" FontSize="24" Margin="27,142,0,0">
+                            <Run  Text="服药时间："/>
+                            <Run  Text="{Binding drugtime,Converter={StaticResource drugTimeConverter}}"/>
+                            </TextBlock>
+
+                            <TextBlock HorizontalAlignment="Left" Height="45"  TextWrapping="Wrap" Text="预计时长：" VerticalAlignment="Top" Width="auto" Foreground="White" FontSize="24" Margin="27,187,0,0"/>
+                            <TextBlock x:Name="med_start_time" HorizontalAlignment="Left" Height="45"  TextWrapping="Wrap"  VerticalAlignment="Top" Width="342.506" Foreground="White" FontSize="24" Margin="154,187,0,0">
+                            <Run Text="{Binding start}"/>
+                            <Run Text="开始"/>
+                            </TextBlock>
+                            <TextBlock x:Name="med_start_end" HorizontalAlignment="Left"  Height="45"  TextWrapping="Wrap"  VerticalAlignment="Top" Width="auto" Foreground="White" FontSize="24" Margin="154,224,0,0">
+                            <Run Text="{Binding end}"/>
+                            <Run Text="结束"/>
+                            </TextBlock>
+
+                        </Grid>
+                    </DataTemplate>
+                </ItemsControl.ItemTemplate>
+
+            </ItemsControl>
+        </ScrollViewer>
+
         <Image x:Name="jiantou1_png" HorizontalAlignment="Right" Height="76" Margin="0,0,55,484" Source="Images/Login/jiantou1.png" Stretch="Fill" VerticalAlignment="Bottom" Width="40" RenderTransformOrigin="0.5,0.5" MouseDown="jiantou1_png_MouseDown">
             <Image.RenderTransform>
                 <TransformGroup>
@@ -105,7 +154,6 @@
                 </TransformGroup>
             </Image.RenderTransform>
         </Image>
-        <TextBlock x:Name="allergicdrug" HorizontalAlignment="Left" Height="45" Margin="1054,307,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="auto" Foreground="White" FontSize="24" Text="过敏药物：维他命"/>
 
 
         <!-- 这里放其他的详细内容 -->

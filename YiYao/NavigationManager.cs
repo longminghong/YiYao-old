@@ -45,9 +45,12 @@ namespace YiYao
 
         public void GoToPageWithArgs(Type type,object obj) {
 
-            var ui = (UIElement)Activator.CreateInstance(type);
-            if(mCurUI != ui)
+            var currentType = (mCurUI as UIElement).GetType();
+            if (currentType != type)
+            {
+                var ui = (UIElement)Activator.CreateInstance(type);
                 GoToUI(ui, obj);
+            }
         }
     }
     

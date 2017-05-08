@@ -8,6 +8,7 @@
              mc:Ignorable="d" 
              Width="1920" Height="1080">
     <UserControl.Resources>
+        <local:ReadingImageNameConverter x:Key="readingConverter" />
         <Style x:Key="KnowldgeButtonStyle" TargetType="{x:Type Button}">
             <Setter Property="FocusVisualStyle" Value="{StaticResource FocusVisual}"/>
             <Setter Property="Foreground" Value="White" />
@@ -32,9 +33,10 @@
         </Style>
         <Storyboard x:Key="Storyboard1">
             <PointAnimationUsingKeyFrames Storyboard.TargetProperty="(UIElement.Clip).(PathGeometry.Figures)[0].(PathFigure.Segments)[2].(LineSegment.Point)" Storyboard.TargetName="buttons">
-                <EasingPointKeyFrame KeyTime="0:0:0.8" Value="-23,394"/>
+                <EasingPointKeyFrame KeyTime="0:0:0.8" Value="-23,392"/>
             </PointAnimationUsingKeyFrames>
             <PointAnimationUsingKeyFrames Storyboard.TargetProperty="(UIElement.Clip).(PathGeometry.Figures)[0].(PathFigure.Segments)[1].(LineSegment.Point)" Storyboard.TargetName="buttons">
+                <EasingPointKeyFrame KeyTime="0:0:0.8" Value="287,392"/>
                 <EasingPointKeyFrame KeyTime="0:0:0.8" Value="287,392"/>
             </PointAnimationUsingKeyFrames>
         </Storyboard>
@@ -45,21 +47,27 @@
         </EventTrigger>
     </UserControl.Triggers>
     <Canvas>
-        <StackPanel x:Name="buttons" Orientation="Vertical" Canvas.Left="1425" Canvas.Top="322">
-            <StackPanel.Clip>
-                <PathGeometry>
-                    <PathFigure IsClosed="True" StartPoint="-18,-28">
-                        <LineSegment Point="296,-28"/>
-                        <LineSegment Point="297,-6"/>
-                        <LineSegment Point="-15,-4"/>
-                    </PathFigure>
-                </PathGeometry>
-            </StackPanel.Clip>
-            <Button Style="{DynamicResource KnowldgeButtonStyle}" Canvas.Left="330" Canvas.Top="153" Content="高血压的危险因子" />
-            <Button Style="{DynamicResource KnowldgeButtonStyle}" Canvas.Left="330" Canvas.Top="153" Content="防止血压剧烈波动"/>
-            <Button Style="{DynamicResource KnowldgeButtonStyle}" Canvas.Left="330" Canvas.Top="153" Content="高血压患者的生活保健1"/>
-            <Button Style="{DynamicResource KnowldgeButtonStyle}" Canvas.Left="330" Canvas.Top="153" Content="量血压时可以注意..."/>
-        </StackPanel>
+        <ScrollViewer x:Name="buttons" Canvas.Left="1425" Canvas.Top="322" Height="600" PanningMode="VerticalOnly" VerticalScrollBarVisibility="Hidden" CanContentScroll="True" >
+            
+            <ScrollViewer.Clip>
+                    <PathGeometry>
+                        <PathFigure IsClosed="True" StartPoint="-18,-28">
+                            <LineSegment Point="296,-28"/>
+                            <LineSegment Point="297,-6"/>
+                            <LineSegment Point="-15,-4"/>
+                        </PathFigure>
+                    </PathGeometry>
+                </ScrollViewer.Clip>
+                
+                <ItemsControl x:Name="mycontrol">
+                    <ItemsControl.ItemTemplate>
+                        <DataTemplate>
+                        <Button Style="{DynamicResource KnowldgeButtonStyle}" Canvas.Left="330" Canvas.Top="153"  Content="{Binding Converter={StaticResource readingConverter}}" Tag="{Binding }"/>
+                        </DataTemplate>
+                    </ItemsControl.ItemTemplate>
+                </ItemsControl>
+        </ScrollViewer>
+       
         <Canvas x:Name="pop" Visibility="Collapsed" Opacity="0" Width="947" Height="531" Canvas.Top="370" Canvas.Left="915" IsManipulationEnabled="True" RenderTransformOrigin="0.5,0.5">
             <Canvas.RenderTransform>
                 <TransformGroup>
@@ -67,7 +75,7 @@
                     <TranslateTransform />
                 </TransformGroup>
             </Canvas.RenderTransform>
-            <Image x:Name="k1" Source="/Images/Know/knowldge1.png" Width="947" Height="531"  >
+            <Image x:Name="popimage" Source="/Images/Know/knowldge1.png" Width="947" Height="531"  >
             </Image>
             <Button Canvas.Left="874.1"  Click="Button_Click" IsManipulationEnabled="True">
                 <Button.Template>

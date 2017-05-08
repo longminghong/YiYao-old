@@ -4,6 +4,7 @@
       xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
       xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
       xmlns:local="clr-namespace:YiYao"
+      xmlns:s="http://schemas.microsoft.com/surface/2008"
       mc:Ignorable="d" 
       d:DesignHeight="300" d:DesignWidth="300" Width="1920" Height="1080"
       >
@@ -47,7 +48,7 @@
         </Image>
         <!-- 点阵地图-->
 
-        <Image x:Name="jiantou1_png" HorizontalAlignment="Right" Height="76" Margin="0,0,55,484" Source="Images/Login/jiantou1.png" Stretch="Fill" VerticalAlignment="Bottom" Width="40" RenderTransformOrigin="0.5,0.5" MouseDown="jiantou1_png_MouseDown" Grid.Column="1">
+        <Image x:Name="jiantou1_png" Visibility="Hidden" HorizontalAlignment="Right" Height="76" Margin="0,0,55,484" Source="Images/Login/jiantou1.png" Stretch="Fill" VerticalAlignment="Bottom" Width="40" RenderTransformOrigin="0.5,0.5" MouseDown="jiantou1_png_MouseDown" Grid.Column="1">
             <Image.RenderTransform>
                 <TransformGroup>
                     <ScaleTransform/>
@@ -58,11 +59,13 @@
             </Image.RenderTransform>
         </Image>
         <TextBlock HorizontalAlignment="Left" Height="45.625" Margin="119.4,151.375,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="384" Foreground="#FF42918A" FontSize="36" Text="评估结果"/>
-        <Image Margin="268.8,324.2,318.441,144.8" Source="人体-红色.png" Stretch="Fill"/>
+
+        <Image x:Name="image_risk"  Margin="268.8,324.2,318.441,144.8"  Stretch="Fill"/>
         <Image Margin="614.359,350.4,292.441,706.6" Source="风险等级.png" Stretch="Fill"/>
+
         <Image Margin="664.2,421.2,223.6,614.8" Source="椭圆.png" Stretch="Fill"/>
         <TextBlock HorizontalAlignment="Left" Height="36.563" Margin="664.2,351.057,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="117.6" Foreground="#FFF3FAFA" FontSize="22"><Run Text="风险"/><Run Text="等级"/><Run Text="："/></TextBlock>
-        <TextBlock HorizontalAlignment="Left" Height="36.563" Margin="786.8,351.057,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="117.6" Foreground="#FFE83737" FontSize="22" Text="高危" FontWeight="Bold"/>
+        <TextBlock x:Name="textblock_risk" HorizontalAlignment="Left" Height="36.563" Margin="786.8,351.057,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="117.6" Foreground="#FFE83737" FontSize="22"  FontWeight="Bold"/>
         <TextBlock HorizontalAlignment="Left" Height="36.563" Margin="731.4,428.637,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="117.6" Foreground="#FFF3FAFA" FontSize="22" Text="左心房肥大"/>
         <Image Margin="664.2,462.763,223.6,573.237" Source="椭圆.png" Stretch="Fill"/>
         <TextBlock HorizontalAlignment="Left" Height="36.563" Margin="731.4,470.2,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="117.6" Foreground="#FFF3FAFA" FontSize="22" Text="高血压"/>
@@ -87,19 +90,32 @@
         <TextBlock HorizontalAlignment="Left" Height="36.563" Margin="504.2,421.2,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="126" Foreground="#FFF3FAFA" FontSize="20" Grid.Column="1"><Run Text="体重"/><Run Text="（kg）："/></TextBlock>
         <TextBlock HorizontalAlignment="Left" Height="36.563" Margin="241.6,486.45,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="69.6" Foreground="#FFF3FAFA" FontSize="20" Text="BMI：" Grid.Column="1"/>
         <TextBlock HorizontalAlignment="Left" Height="36.563" Margin="562.2,486.45,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="68" Foreground="#FFF3FAFA" FontSize="20" Text="腹围：" Grid.Column="1"/>
+
         <TextBlock HorizontalAlignment="Left" Height="36.563" Margin="340.2,421.2,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="151.2" Foreground="#FFF3FAFA" FontSize="20" Text="__________" Grid.Column="1"/>
         <TextBlock HorizontalAlignment="Left" Height="36.563" Margin="637.8,421.2,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="151.2" Foreground="#FFF3FAFA" FontSize="20" Text="__________" Grid.Column="1"/>
         <TextBlock HorizontalAlignment="Left" Height="36.563" Margin="637.8,484.013,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="151.2" Foreground="#FFF3FAFA" FontSize="20" Text="__________" Grid.Column="1"/>
         <TextBlock HorizontalAlignment="Left" Height="36.563" Margin="340.2,486.45,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="151.2" Foreground="#FFF3FAFA" FontSize="20" Text="__________" Grid.Column="1"/>
+
         <Image Margin="486.6,572.526,198.2,372.374" Source="血脂曲线图.png" Stretch="Fill" Grid.Column="1"/>
         <Image Margin="109.4,572.526,575.4,372.374" Source="血压曲线图.png" Stretch="Fill" Grid.Column="1"/>
         <TextBlock HorizontalAlignment="Left" Height="36.563" Margin="109.4,748.037,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="117.6" Foreground="#FFF3FAFA" FontSize="24" FontWeight="Bold" Text="当前用药" Grid.Column="1"/>
 
-        <Image Margin="472.2,831.2,357,163.8" Source="1.png" Stretch="Fill" Grid.Column="1"/>
-        <Image Margin="647.4,832.2,181.8,163.8" Source="2.png" Stretch="Fill" Grid.Column="1"/>
-        <Image Margin="292.8,832.2,536.4,163.8" Source="3.png" Stretch="Fill" Grid.Column="1"/>
-        <Image Margin="109.4,831.2,719.8,163.8" Source="4.png" Stretch="Fill" Grid.Column="1"/>
-        
+        <ScrollViewer x:Name="yaoscrollviewer" Height="84" Margin="120.2,832,198,164" PanningMode="Both" HorizontalScrollBarVisibility="Hidden" Grid.Column="1" VerticalScrollBarVisibility="Hidden" >
+            <ItemsControl x:Name="baojian" Width="813" >
+                <ItemsControl.ItemsPanel>
+                    <ItemsPanelTemplate>
+                        <StackPanel Orientation="Horizontal" />
+                    </ItemsPanelTemplate>
+                </ItemsControl.ItemsPanel>
+                <ItemsControl.ItemTemplate>
+                    <DataTemplate>
+                        <Image Source="{Binding }" Width="158" Height="84" Margin="0,0,10,0"/>
+                    </DataTemplate>
+                </ItemsControl.ItemTemplate>
+            </ItemsControl>
+        </ScrollViewer>
+
+
         <Ellipse Fill="#FFF90000" HorizontalAlignment="Left" Height="30" Margin="44.8,863.2,0,0" Stroke="Black" VerticalAlignment="Top" Width="30"/>
         <Ellipse Fill="#FFF3DC4F" HorizontalAlignment="Left" Height="30" Margin="44.8,913.2,0,0" Stroke="Black" VerticalAlignment="Top" Width="30"/>
         <Ellipse Fill="#FF1FEE47" HorizontalAlignment="Left" Height="30" Margin="44.8,958.4,0,0" Stroke="Black" VerticalAlignment="Top" Width="30"/>
@@ -107,7 +123,11 @@
         <TextBlock HorizontalAlignment="Left" Height="36.563" Margin="93.4,912.637,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="117.6" Foreground="#FFF3FAFA" FontSize="22" Text="中危"/>
         <TextBlock HorizontalAlignment="Left" Height="36.563" Margin="93.4,957.837,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="117.6" Foreground="#FFF3FAFA" FontSize="22" Text="健康"/>
 
-
+        <TextBlock x:Name="textblock_heigh" HorizontalAlignment="Left" Height="37" Margin="340.2,408,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="152" Foreground="#FFF3FAFA" FontSize="20" Grid.Column="1"/>
+        <TextBlock x:Name="textblock_weigh" HorizontalAlignment="Left" Height="37" Margin="637.2,408,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="152" Foreground="#FFF3FAFA" FontSize="20" Text="" Grid.Column="1"/>
+        <TextBlock x:Name="textblock_bmi" HorizontalAlignment="Left" Height="37" Margin="340.2,472,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="152" Foreground="#FFF3FAFA" FontSize="20" Text="" Grid.Column="1"/>
+        <TextBlock x:Name="textblock_waist" HorizontalAlignment="Left" Height="37" Margin="637.2,472,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="152" Foreground="#FFF3FAFA" FontSize="20" Text="" Grid.Column="1"/>
+        <Image Grid.Column="1" Margin="895.2,1021,35,42" Source="return.png" Stretch="Fill" MouseDown="Image_MouseDown"/>
 
     </Grid>
 </UserControl>

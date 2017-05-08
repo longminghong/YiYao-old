@@ -100,5 +100,10 @@ namespace YiYao
         {
             (Parent as NavigationManager).GoToPage(typeof(A3));
         }
+
+        private void ScrollViewer_ManipulationBoundaryFeedback(object sender, ManipulationBoundaryFeedbackEventArgs e)
+        {
+
+        }
     }
 }

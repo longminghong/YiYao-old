@@ -28,6 +28,11 @@ namespace YiYao
         public A6()
         {
             InitializeComponent();
+
+            scrollviewer.ManipulationBoundaryFeedback += (s, e) =>
+            {
+                e.Handled = true;
+            };
         }
         public void Start(object args)
         {
@@ -37,7 +42,9 @@ namespace YiYao
                 //customInfo = (MTMCustInfo)args;
                 // to do 数据绑定
                 medCollectDTO = (MTMMedCollectDTO)args;
-
+                
+                mycontrol.ItemsSource = medCollectDTO.drugs;
+                
                 EventAggregator eventAggragator = ServiceLocator.Current.GetInstance<EventAggregator>();
                 eventAggragator.GetEvent<WebSocketEvent>().Subscribe(OnWebSocketEvent);
             }
@@ -51,25 +58,33 @@ namespace YiYao
         private void OnWebSocketEvent(object data)
         {
             Console.WriteLine("data A6 ======== OK ");
+            
+            medCollectDTO = (MTMMedCollectDTO)data;
 
-            if(String.Equals("yes", medCollectDTO.isallergy))
-                isallergy.Text = "药物过敏";
-            else
-                isallergy.Text = "没有药物过敏";
-            allergicdrug.Text = "过敏药物:"+ medCollectDTO.allergicdrug;
+            String value = "收缩压：";
+            value += medCollectDTO.systolicpressure;
+            systolicpressure.Text = value;
 
-            systolicpressure.Text = "收缩压(mmHg):"+ medCollectDTO.systolicpressure;
-            diastolicpressure.Text = "舒张压(mmHg):"+ medCollectDTO.diastolicpressure;
+            String diastolicpressureString = "舒张压：";
+            diastolicpressureString += medCollectDTO.diastolicpressure;
+            diastolicpressure.Text = diastolicpressureString;
 
-            if (String.Equals("law-y", medCollectDTO.hypotensor))
-            {
-                hypotensor.Text = "已服用降压药";
+            if (medCollectDTO.allergicdrug.Count() > 0) {
+
+                String resultValue = "";
+
+                foreach (Allergicdrug item in medCollectDTO.allergicdrug) {
+
+                    resultValue += item.drugname;
+                    resultValue += "  ;";
+                }
+                isallergy.Text = resultValue;
+
             }
-            else {
-                hypotensor.Text = "没有服用降压药";
-            }
+            
+            mycontrol.ItemsSource = medCollectDTO.drugs;
+            mycontrol.Items.Refresh();
 
-            this.DataContext = medCollectDTO.drugs;
         }
         private void jiantou1_png_MouseDown(object sender, MouseButtonEventArgs e)
         {

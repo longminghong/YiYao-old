@@ -20,10 +20,7 @@ using YiYao.Events;
 namespace YiYao
 {
 
-    public class business
-    {
-        public string txt { get; set; }
-    }
+    
     /// <summary>
     /// A7.xaml 的交互逻辑
     /// </summary>
@@ -31,22 +28,22 @@ namespace YiYao
     {
 
         Dictionary<string, string> diseDictionary;
+        
         List<String> disDataList;
+        MTMDisDTO diseDTO;
         public A7()
         {
             InitializeComponent();
             diseDictionary = new Dictionary<string, string>();
             initData();
             disDataList = new List<String>();
-
-            mycontrol.ItemsSource = disDataList;
         }
 
         public void Start(object args)
         {
             if (null != args)
             {
-
+                mycontrol.ItemsSource = disDataList;
                 //customInfo = (MTMCustInfo)args;
                 // to do 数据绑定
 
@@ -61,89 +58,110 @@ namespace YiYao
             eventAggragator.GetEvent<WebSocketEvent>().Unsubscribe(OnWebSocketEvent);
         }
         private void OnWebSocketEvent(object data)
-        {   
-          
-            MTMDisDTO diseDTO = (MTMDisDTO)data;
+        {
+            disDataList.Clear();
+
+            diseDTO = (MTMDisDTO)data;
+
             foreach (String diskey in diseDTO.diseasedata.disease1)
             {
-
-                String value = diseDictionary[diskey];
-                disDataList.Add(value);
+                if (diseDictionary.ContainsKey(diskey))
+                {
+                    String value = diseDictionary[diskey];
+                    disDataList.Add(value);
+                }
             }
             foreach (String diskey in diseDTO.diseasedata.disease2) {
-
-                String value = diseDictionary[diskey];
-                disDataList.Add(value);
+                if (diseDictionary.ContainsKey(diskey))
+                {
+                    String value = diseDictionary[diskey];
+                    disDataList.Add(value);
+                }
             }
             foreach (String diskey in diseDTO.diseasedata.disease3)
             {
-
-                String value = diseDictionary[diskey];
-                disDataList.Add(value);
+                if (diseDictionary.ContainsKey(diskey))
+                {
+                    String value = diseDictionary[diskey];
+                    disDataList.Add(value);
+                }
             }
             foreach (String diskey in diseDTO.diseasedata.disease4)
             {
-
-                String value = diseDictionary[diskey];
-                disDataList.Add(value);
+                if (diseDictionary.ContainsKey(diskey))
+                {
+                    String value = diseDictionary[diskey];
+                    disDataList.Add(value);
+                }
             }
-            //foreach (String diskey in diseDTO.diseasedata.disease5)
-            //{
-
-            //    String value = diseDictionary[diskey];
-            //    disDataList.Add(value);
-            //}
             foreach (String diskey in diseDTO.diseasedata.disease6)
             {
-
-                String value = diseDictionary[diskey];
-                disDataList.Add(value);
+                if (diseDictionary.ContainsKey(diskey))
+                {
+                    String value = diseDictionary[diskey];
+                    disDataList.Add(value);
+                }
             }
             foreach (String diskey in diseDTO.diseasedata.disease7)
             {
-
-                String value = diseDictionary[diskey];
-                disDataList.Add(value);
+                if (diseDictionary.ContainsKey(diskey))
+                {
+                    String value = diseDictionary[diskey];
+                    disDataList.Add(value);
+                }
             }
             foreach (String diskey in diseDTO.diseasedata.disease8)
             {
-
-                String value = diseDictionary[diskey];
-                disDataList.Add(value);
+                if (diseDictionary.ContainsKey(diskey))
+                {
+                    String value = diseDictionary[diskey];
+                    disDataList.Add(value);
+                }
             }
             foreach (String diskey in diseDTO.diseasedata.disease9)
             {
-
-                String value = diseDictionary[diskey];
-                disDataList.Add(value);
+                if (diseDictionary.ContainsKey(diskey))
+                {
+                    String value = diseDictionary[diskey];
+                    disDataList.Add(value);
+                }
             }
             foreach (String diskey in diseDTO.diseasedata.disease10)
             {
-
-                String value = diseDictionary[diskey];
-                disDataList.Add(value);
+                if (diseDictionary.ContainsKey(diskey))
+                {
+                    String value = diseDictionary[diskey];
+                    disDataList.Add(value);
+                }
             }
             foreach (String diskey in diseDTO.diseasedata.disease11)
             {
-
-                String value = diseDictionary[diskey];
-                disDataList.Add(value);
+                if (diseDictionary.ContainsKey(diskey))
+                {
+                    String value = diseDictionary[diskey];
+                    disDataList.Add(value);
+                }
             }
             foreach (String diskey in diseDTO.diseasedata.disease12)
             {
 
-                String value = diseDictionary[diskey];
-                disDataList.Add(value);
+                if (diseDictionary.ContainsKey(diskey)) { 
+                    String value = diseDictionary[diskey];
+                    disDataList.Add(value);
+                }
             }
             foreach (String diskey in diseDTO.diseasedata.disease13)
             {
-
-                String value = diseDictionary[diskey];
-                disDataList.Add(value);
+                if (diseDictionary.ContainsKey(diskey))
+                {
+                    String value = diseDictionary[diskey];
+                    disDataList.Add(value);
+                }
             }
-
-            Console.WriteLine("decode A7 finish");
-
+            mycontrol.ItemsSource = disDataList;
+            mycontrol.Items.Refresh();
+            Console.WriteLine("A7 page finish.");
+            
         }
         private void jiantou1_png_MouseDown(object sender, MouseButtonEventArgs e)
         {

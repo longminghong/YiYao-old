@@ -17,7 +17,7 @@ using WebService;
 using Microsoft.Practices.ServiceLocation;
 using Prism.Events;
 using YiYao.Events;
-
+using System.Windows.Media.Animation;
 namespace YiYao
 {
     /// <summary>
@@ -39,6 +39,13 @@ namespace YiYao
                 cardReader = new IDCardReader();
                 cardReader.CardRead += CardReader_CardRead;
                 cardReader.Start();
+
+                var loadingAnimation = FindResource("A3Storyboard1") as Storyboard;
+                //loadingAnimation.Completed += (ss, ee) =>
+                //{
+                //    (Parent as NavigationManager).GoToPage(typeof(Dashboard));
+                //};
+                loadingAnimation.Begin();
             };
             this.Unloaded += (s, e) =>
             {
@@ -112,24 +119,51 @@ namespace YiYao
         {
            Console.WriteLine("data ======== OK ");
 
-            if (null != customInfo)
-            {   
-                input_textblock_userinfo_name.Text = "姓名: " + customInfo.name;
+            if (null != data)
+            {
+                customInfo = data as MTMCustInfo;
 
-                input_textblock_userinfo_genderr.Text = "性别: " + customInfo.gender;
 
-                input_textblock_userinfo_birthday.Text = "生日：" + customInfo.birthday;
+                if (String.Equals("close", customInfo.operatetype)) {
 
-                if("phone" == customInfo.pattern)
-                    input_textblock_userinfo_contact.Text = "联系方式（手机）：" + customInfo.phone;
+                    (Parent as NavigationManager).GoToPage(typeof(Dashboard));
+                }
+
+                //input_textblock_userinfo_name.Text = "姓名: " + customInfo.name;
+
+                //input_textblock_userinfo_genderr.Text = "性别: " + customInfo.gender;
+
+                //input_textblock_userinfo_birthday.Text = "生日：" + customInfo.birthday;
+
+                //if ("phone" == customInfo.pattern)
+                //    input_textblock_userinfo_contact.Text = "联系方式（手机）：" + customInfo.phone;
+                //else
+                //    input_textblock_userinfo_contact.Text = "联系方式（座机）：" + customInfo.phonezone + customInfo.phonenumber + customInfo.extension;
+                //input_textblock_userinfo_ssn.Text = "身份证 ：" + customInfo.ssn;
+                //input_textblock_userinfo_email.Text = "邮件 ：" + customInfo.email;
+                //input_textblock_vipinfo_id.Text = "会员卡号 ：" + customInfo.cardno;
+                //input_textblock_userinfo_time.Text = "开卡时间 ：" + customInfo.carddate;
+                //input_textblock_userinfo_address.Text = "地址 ：" + customInfo.province + customInfo.city + customInfo.district + customInfo.detailaddress;
+
+
+
+                xinxi2_png.Text = "姓名: " + customInfo.name + "               性别：" + customInfo.gender;
+
+                //input_textblock_userinfo_genderr.Text = "性别: " + customInfo.gender;
+
+                xinxi3_png.Text = "生日：" + customInfo.birthday;
+
+                if ("phone" == customInfo.pattern)
+                    xinxi4_png.Text = "联系方式（手机）：" + customInfo.phone;
                 else
-                    input_textblock_userinfo_contact.Text = "联系方式（座机）：" + customInfo.phonezone + customInfo.phonenumber + customInfo.extension;
-                input_textblock_userinfo_ssn.Text = "身份证 ：" + customInfo.ssn;
-                input_textblock_userinfo_email.Text = "邮件 ：" + customInfo.email;
-                input_textblock_vipinfo_id.Text = "会员卡号 ：" + customInfo.cardno;
-                input_textblock_userinfo_time.Text = "开卡时间 ：" + customInfo.carddate;
-                input_textblock_userinfo_address.Text = "地址 ：" + customInfo.province + customInfo.city + customInfo.district + customInfo.detailaddress;
-                
+                    xinxi4_png.Text = "联系方式（座机）：" + customInfo.phonezone + customInfo.phonenumber + customInfo.extension;
+                xinxi5_png.Text = "身份证 ：" + customInfo.ssn;
+                xinxi6_png.Text = "邮件 ：" + customInfo.email;
+
+                textBlock3.Text = "会员卡号 ：" + customInfo.cardno;
+                textBlock4.Text = "开卡时间 ：" + customInfo.carddate;
+                textBlock2.Text = "地址 ：" + customInfo.province + customInfo.city + customInfo.district + customInfo.detailaddress;
+
             }
         }
 

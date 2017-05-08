@@ -4,7 +4,8 @@
       xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
       xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
       xmlns:local="clr-namespace:YiYao"
-             
+      xmlns:s="http://schemas.microsoft.com/surface/2008"
+
         xmlns:c="clr-namespace:System.Collections;assembly=mscorlib"
              
       mc:Ignorable="d" 
@@ -48,27 +49,61 @@
 
         <TextBlock HorizontalAlignment="Left" Height="36.563" Margin="528,248,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="117.6" Foreground="#FFF3FAFA" FontSize="24" Text="西药" FontWeight="Bold"/>
 
-        <ListView x:Name="listview_west_med" Height="150" Margin="528,289.563,544,640.437"   Background="{x:Null}"/>
+        <Border x:Name="listview_west_med" Height="150" Margin="528,289.563,544,640.437" BorderBrush="White" BorderThickness="1" Background="{x:Null}"/>
 
         <TextBlock HorizontalAlignment="Left" Height="36.563" Margin="528,494.4,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="117.6" Foreground="#FFF3FAFA" FontSize="24" Text="中药" FontWeight="Bold"/>
         <TextBlock HorizontalAlignment="Left" Height="36.563" Margin="528,747.2,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="117.6" Foreground="#FFF3FAFA" FontSize="24" Text="保健品" FontWeight="Bold"/>
 
-        <ListView x:Name="listview_med_Copy" Height="150" Margin="528,535.963,544,394.037"   Background="{x:Null}"/>
+        <Border x:Name="listview_med_Copy" Height="150" Margin="528,535.963,544,394.037" BorderBrush="White" BorderThickness="1"  Background="{x:Null}"/>
 
-        <ListView x:Name="listview_med_Copy1" Height="150" Margin="528,788.763,544,141.237"    Background="{x:Null}"/>
-        <Image Margin="544,317.563,1218,677.437" Source="1.png" Stretch="Fill"/>
-        <Image Margin="756,318.563,1006,677.437" Source="2.png" Stretch="Fill"/>
-        <Image Margin="977.6,318.563,784.4,677.437" Source="3.png" Stretch="Fill"/>
-        <Image Margin="1190.4,317.563,571.6,677.437" Source="4.png" Stretch="Fill"/>
-        <Image Margin="552,567.963,1210,427.037" Source="1.png" Stretch="Fill"/>
-        <Image Margin="764,568.963,998,427.037" Source="2.png" Stretch="Fill"/>
-        <Image Margin="985.6,568.963,776.4,427.037" Source="3.png" Stretch="Fill"/>
-        <Image Margin="1198.4,567.963,563.6,427.037" Source="4.png" Stretch="Fill"/>
-        <Image Margin="544,821.763,1218,173.237" Source="1.png" Stretch="Fill"/>
-        <Image Margin="756,822.763,1006,173.237" Source="2.png" Stretch="Fill"/>
-        <Image Margin="977.6,822.763,784.4,173.237" Source="3.png" Stretch="Fill"/>
-        <Image Margin="1190.4,821.763,571.6,173.237" Source="4.png" Stretch="Fill"/>
-        <Image x:Name="jiantou1_png" HorizontalAlignment="Right" Height="76" Margin="0,0,55,484" Source="Images/Login/jiantou1.png" Stretch="Fill" VerticalAlignment="Bottom" Width="40" RenderTransformOrigin="0.5,0.5" MouseDown="jiantou1_png_MouseDown">
+        <Border x:Name="listview_med_Copy1" Height="150" Margin="528,788.763,544,141.237" BorderBrush="White" BorderThickness="1"   Background="{x:Null}"/>
+        <ScrollViewer  Height="84" Width="813" Margin="552,319,555,677" PanningMode="HorizontalOnly" HorizontalScrollBarVisibility="Hidden" VerticalScrollBarVisibility="Hidden" >
+            <ItemsControl x:Name="xiyao"  >
+                <ItemsControl.ItemsPanel>
+                    <ItemsPanelTemplate>
+                        <StackPanel Orientation="Horizontal" />
+                    </ItemsPanelTemplate>
+                </ItemsControl.ItemsPanel>
+                <ItemsControl.ItemTemplate>
+                    <DataTemplate>
+                        <Image Source="{Binding }" Width="158" Height="84" Margin="0,0,10,0"/>
+                    </DataTemplate>
+                </ItemsControl.ItemTemplate>
+            </ItemsControl>
+        </ScrollViewer>
+
+        <ScrollViewer  Height="84" Width="813" Margin="552,569,555,427" PanningMode="HorizontalOnly" HorizontalScrollBarVisibility="Hidden" VerticalScrollBarVisibility="Hidden" >
+            <ItemsControl x:Name="zhongyao" >
+                <ItemsControl.ItemsPanel>
+                    <ItemsPanelTemplate>
+                        <StackPanel Orientation="Horizontal" />
+                    </ItemsPanelTemplate>
+                </ItemsControl.ItemsPanel>
+                <ItemsControl.ItemTemplate>
+                    <DataTemplate>
+                        <Image Source="{Binding }" Width="158" Height="84" Margin="0,0,10,0"/>
+                    </DataTemplate>
+                </ItemsControl.ItemTemplate>
+            </ItemsControl>
+        </ScrollViewer>
+
+        <ScrollViewer  Height="84" Width="813" Margin="552,825,555,171" PanningMode="HorizontalOnly" HorizontalScrollBarVisibility="Hidden" VerticalScrollBarVisibility="Hidden" >
+            <ItemsControl x:Name="baojian"  >
+                <ItemsControl.ItemsPanel>
+                    <ItemsPanelTemplate>
+                        <StackPanel Orientation="Horizontal" />
+                    </ItemsPanelTemplate>
+                </ItemsControl.ItemsPanel>
+                <ItemsControl.ItemTemplate>
+                    <DataTemplate>
+                        <Image Source="{Binding }" Width="158" Height="84" Margin="0,0,10,0"/>
+                    </DataTemplate>
+                </ItemsControl.ItemTemplate>
+            </ItemsControl>
+        </ScrollViewer>
+
+
+        <Image x:Name="jiantou1_png" Visibility="Hidden" HorizontalAlignment="Right" Height="76" Margin="0,0,55,484" Source="Images/Login/jiantou1.png" Stretch="Fill" VerticalAlignment="Bottom" Width="40" RenderTransformOrigin="0.5,0.5" MouseDown="jiantou1_png_MouseDown">
             <Image.RenderTransform>
                 <TransformGroup>
                     <ScaleTransform/>
@@ -78,6 +113,7 @@
                 </TransformGroup>
             </Image.RenderTransform>
         </Image>
+        <TextBlock HorizontalAlignment="Left" Height="45.625" Margin="90.6,114.637,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="384" Foreground="#FF42918A" FontSize="36" Text="推荐用药"/>
         <!-- 点阵地图-->
     </Grid>
 </UserControl>

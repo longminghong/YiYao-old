@@ -61,18 +61,36 @@
             </ItemsControl.ItemsPanel>
             <ItemsControl.ItemTemplate>
                 <DataTemplate>
-                    <Grid Background="Transparent" Width="450" Height="180" HorizontalAlignment="Left" VerticalAlignment="Center">
-                        <Image HorizontalAlignment="Left" Width="180" Height="180" Source="药物背景-圆.png" Margin="0,15"/>
-                        <Image HorizontalAlignment="Right" Stretch="Fill" Width="329.9"   Source="药物文字背景.png" Margin="0,15,10,32.4" />
-                        <Image HorizontalAlignment="Left" Width="65.8" Height="Auto" Source="1.png" Margin="54.3,76.2,0,54.45" />
-                        <TextBlock HorizontalAlignment="Left" Foreground="White" Height="16.8" Margin="185,30.3,0,0" TextWrapping="Wrap" Text="{Binding _class}" VerticalAlignment="Top" Width="100"/>
+                    <Grid Background="Transparent" Width="450" Height="237.2" HorizontalAlignment="Left" VerticalAlignment="Center">
+                        <Image HorizontalAlignment="Left" Width="180" Height="180" Source="药物背景-圆.png" Margin="-21.6,100.173,0,-42.973"/>
+                        <Image HorizontalAlignment="Right" Stretch="Fill" Width="329.9"   Source="药物文字背景.png" Margin="0,15,10,48.6" />
+                        <Image HorizontalAlignment="Left" Width="65.8" Height="Auto" Source="1.png" Margin="32.7,137.773,0,-7.123" />
+                        <!--<TextBlock HorizontalAlignment="Left" Foreground="White" Height="16.8" Margin="185,30.3,0,0" TextWrapping="Wrap" Text="{Binding _class}" VerticalAlignment="Top" Width="100"/>-->
 
                         <!--<TextBlock HorizontalAlignment="Left" Foreground="White" Height="16.8" Margin="305,30.3,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="100"><Run Text="小"/><Run Text="类："/></TextBlock>-->
 
-                        <TextBlock HorizontalAlignment="Left" Foreground="White" Height="16.8" Margin="185,51,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="100" Text="{Binding name}"><LineBreak/><Run/><Run Text="："/></TextBlock>
-                        <TextBlock HorizontalAlignment="Left" Foreground="White" Height="16.8" Margin="185,70.8,0,0" TextWrapping="Wrap" Text="{Binding common_name}" VerticalAlignment="Top" Width="100"/>
-                        <TextBlock HorizontalAlignment="Left" Foreground="White" Height="16.8" Margin="185,90.6,0,0" TextWrapping="Wrap" Text="{Binding specification}" VerticalAlignment="Top" Width="100"/>
-                        <TextBlock HorizontalAlignment="Left" Foreground="White" Height="16.8" Margin="305,90.6,0,0" TextWrapping="Wrap" Text="{Binding retail_price}" VerticalAlignment="Top" Width="100"/>
+                        <TextBlock HorizontalAlignment="Left" Foreground="White" Height="16.8" Margin="185,34.773,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="100" Text="{Binding name}"><LineBreak/><Run/><Run Text="："/></TextBlock>
+
+                        <TextBlock HorizontalAlignment="Left" Foreground="White" Height="16.8" Margin="185,54.573,0,0" TextWrapping="Wrap" Text="通用名：" VerticalAlignment="Top" Width="54.4"/>
+
+                        <TextBlock HorizontalAlignment="Left" Foreground="White" Height="16.8" Margin="185,74.373,0,0" TextWrapping="Wrap" Text="规格：" VerticalAlignment="Top" Width="46"/>
+
+                        <TextBlock HorizontalAlignment="Left" Foreground="White" Height="16.8" Margin="181,100.173,0,0" TextWrapping="Wrap" Text="用法：" VerticalAlignment="Top" Width="45"/>
+
+                        <TextBlock HorizontalAlignment="Left" Foreground="White" Height="16.8" Margin="245,121.973,0,0" TextWrapping="Wrap" Text="{Binding start}" VerticalAlignment="Top" Width="84.4"/>
+                        <TextBlock HorizontalAlignment="Left" Foreground="White" Height="16.8" Margin="336,121.973,0,0" TextWrapping="Wrap" Text="{Binding end}" VerticalAlignment="Top" Width="84.4"/>
+
+                        <TextBlock HorizontalAlignment="Left" Foreground="White" Height="16.8" Margin="239.4,54.573,0,0" TextWrapping="Wrap" Text="{Binding common_name}" VerticalAlignment="Top" Width="100"/>
+                        <TextBlock HorizontalAlignment="Left" Foreground="White" Height="16.8" Margin="231,76.373,0,0" TextWrapping="Wrap" Text="{Binding specification}" VerticalAlignment="Top" Width="100"/>
+                        <TextBlock HorizontalAlignment="Left" Foreground="White" Height="16.8" Margin="231,100.173,0,0" TextWrapping="Wrap" Text="{Binding day}" VerticalAlignment="Top" Width="17.2"/>
+                        <TextBlock HorizontalAlignment="Left" Foreground="White" Height="16.8" Margin="248.2,100.173,0,0" TextWrapping="Wrap" Text="天" VerticalAlignment="Top" Width="17.2"/>
+                        <TextBlock HorizontalAlignment="Left" Foreground="White" Height="16.8" Margin="272,100.173,0,0" TextWrapping="Wrap" Text="{Binding time}" VerticalAlignment="Top" Width="17.2"/>
+                        <TextBlock HorizontalAlignment="Left" Foreground="White" Height="16.8" Margin="289.2,100.173,0,0" TextWrapping="Wrap" Text="次" VerticalAlignment="Top" Width="17.2"/>
+                        <TextBlock HorizontalAlignment="Left" Foreground="White" Height="16.8" Margin="322.2,100.173,0,0" TextWrapping="Wrap" Text="每次：" VerticalAlignment="Top" Width="52.8"/>
+                        <TextBlock HorizontalAlignment="Left" Foreground="White" Height="16.8" Margin="365.8,100.173,0,0" TextWrapping="Wrap" Text="{Binding dosage}" VerticalAlignment="Top" Width="17.2"/>
+                        <TextBlock HorizontalAlignment="Left" Foreground="White" Height="16.8" Margin="181,121.973,0,0" TextWrapping="Wrap" Text="用药提醒：" VerticalAlignment="Top" Width="67.2"/>
+                        <TextBlock HorizontalAlignment="Left" Foreground="White" Height="16.8" Margin="245,143.773,0,0" TextWrapping="Wrap" Text="{Binding date}" VerticalAlignment="Top" Width="84.4"/>
+                        <TextBlock HorizontalAlignment="Left" Foreground="White" Height="16.8" Margin="181,143.773,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="67.2"><Run Text="复购"/><Run Text=""/><Run Text="提醒："/></TextBlock>
                         <!--<TextBlock HorizontalAlignment="Left" Foreground="White" Height="16.8" Margin="185,112.463,0,0" TextWrapping="Wrap" Text="总价：" VerticalAlignment="Top" Width="100"/>-->
 
                     </Grid>

@@ -5115,7 +5115,7 @@
                 </TransformGroup>
             </Image.RenderTransform>
         </Image>
-        <Image x:Name="yao" Margin="828,401.667,853,439.333" Source="/Images/ScanDrug/yao1.png" Stretch="Fill" Opacity="0" />
+        <Image x:Name="yao" Margin="828,401.667,853,439.333"  Source="/Images/ScanDrug/yao1.png" Stretch="Fill" Opacity="0" />
         <Canvas HorizontalAlignment="Right" Height="124" Margin="0,359.167,808.333,0" VerticalAlignment="Top" Width="114">
             <Image x:Name="quan1_png" Source="/Images/ScanDrug/quan1.png" Stretch="Fill" Width="114" Height="124">
                 <Image.Clip>
@@ -5175,7 +5175,7 @@
             </Image>
             <Image x:Name="di1_png" HorizontalAlignment="Right" Source="/Images/ScanDrug/di1.png" Stretch="Fill" Width="561" Opacity="0" Height="496"/>
             <TextBlock x:Name="textBlock" TextWrapping="Wrap" FontSize="37.333" Foreground="White" Height="51.5" Canvas.Left="32" Canvas.Top="37.916" Width="163.5"><Run Text="不良反应"/><LineBreak/><Run/></TextBlock>
-            <TextBlock x:Name="textBlock1" TextWrapping="Wrap" Foreground="White" FontSize="29.333" Height="81.333" Canvas.Left="65.333" Canvas.Top="114.666" Width="414.333"><Run Text="胃肠道不适包括恶心、呕吐、胃"/><LineBreak/><Run Text="肠道和腹部疼痛；"/></TextBlock>
+            <TextBlock x:Name="textBlock1"  Height="340" TextWrapping="Wrap" Foreground="White" FontSize="29.333"  Canvas.Left="65.333" Canvas.Top="114.666" Width="414.333"><Run Text="胃肠道不适包括恶心、呕吐、胃"/><LineBreak/><Run Text="肠道和腹部疼痛；"/></TextBlock>
             <TextBlock x:Name="textBlock1_Copy" TextWrapping="Wrap" Foreground="White" FontSize="29.333" Text="该药会使出血的风险增加，因此你需要留意自己是否有出血的表现。如果出现的话，请及时告诉您的医生，他们会帮助您进行分析判断，并决定是否要调整治疗方案。 " Height="271.333" Canvas.Left="65.333" Canvas.Top="205.374" Width="414.333"/>
             <Image x:Name="tubiao1_png" Source="/Images/ScanDrug/tubiao1.png" Stretch="Fill" RenderTransformOrigin="-0.02,-0.065" Height="107" Canvas.Left="195.5" Canvas.Top="7.666" Width="101"/>
         </local:DrugPanel>
@@ -5211,7 +5211,8 @@
                     </Canvas>
                     <Canvas x:Name="canvas1" Width="447.666" Height="438.791" Canvas.Left="32" Canvas.Top="20.916">
                         <TextBlock x:Name="textBlock3" Height="51.5" TextWrapping="Wrap" Width="163.5" FontSize="37.333" Foreground="White" Text="储藏建议"/>
-                        <TextBlock x:Name="textBlock4" Height="106.833" TextWrapping="Wrap" Width="414.333" Foreground="White" FontSize="29.333" Canvas.Left="33.333" Canvas.Top="96.056"><Run Text="请将药品放在原包装中储存，放置于阳光直射不到的干燥的地方，例如抽屉、储物柜； "/><LineBreak/><Run/></TextBlock>
+                        <TextBlock x:Name="textBlock4" Height="106.833" TextWrapping="Wrap" Width="414.333" Foreground="White" FontSize="29.333" Canvas.Left="33.333" Canvas.Top="96.056">
+                            <Run Text="请将药品放在原包装中储存，放置于阳光直射不到的干燥的地方，例如抽屉、储物柜； "/><LineBreak/><Run/></TextBlock>
                         <Image x:Name="jinshi_png"  Source="/Images/ScanDrug/yaogui.png" Stretch="Fill" Width="96" Canvas.Left="168.5" Canvas.Top="-12.25"/>
 
                     </Canvas>
@@ -5250,7 +5251,8 @@
             <Image x:Name="di3_png" Source="/Images/ScanDrug/di3.png" Stretch="Fill" HorizontalAlignment="Left" Width="561" Opacity="0" Height="377"/>
             <Canvas HorizontalAlignment="Left" Width="447.666" Height="438.791" VerticalAlignment="Bottom" Canvas.Left="25.5" Canvas.Top="34">
                 <TextBlock x:Name="textBlock2" Height="51.5" TextWrapping="Wrap" Width="163.5" FontSize="37.333" Foreground="White" Text="注意事项"/>
-                <TextBlock x:Name="textBlock5" Height="112.666" TextWrapping="Wrap" Width="414.333" Foreground="White" FontSize="29.333" Canvas.Left="33.333" Canvas.Top="76.75" Text="如果您近期要进行拔牙或手术，请告知医生正在服用该药； "/>
+                <!--注意事项-->
+                <TextBlock x:Name="textBlock5" Height="220" TextWrapping="Wrap" Width="414.333" Foreground="White" FontSize="29.333" Canvas.Left="33.333" Canvas.Top="76.75" Text="如果您近期要进行拔牙或手术，请告知医生正在服用该药； "/>
                 <TextBlock x:Name="textBlock1_Copy2" TextWrapping="Wrap" Width="414.333" Foreground="White" FontSize="29.333" Text="服药时止血时间可能比平长。" Height="271.333" Canvas.Left="33.333" Canvas.Top="210.125"/>
 
             </Canvas>
@@ -5289,6 +5291,28 @@
             </Canvas>
 
         </local:DrugPanel>
+        
+        <Image x:Name="arrow" Visibility="Hidden" Margin="889,842,941,164" Source="箭头.png" Stretch="Fill"/>
+        <Image x:Name="reading" Visibility="Hidden"  Margin="811,916,853,35" MouseDown="Image_MouseDown" Source="相关阅读.png" Stretch="Fill"/>
 
+
+        <Canvas x:Name="pop" Visibility="Collapsed" Opacity="0" Width="1335" Height="777" Canvas.Top="170" Canvas.Left="300" IsManipulationEnabled="True" RenderTransformOrigin="0.5,0.5">
+            <Canvas.RenderTransform>
+                <TransformGroup>
+                    <ScaleTransform />
+                    <TranslateTransform />
+                </TransformGroup>
+            </Canvas.RenderTransform>
+            <Image x:Name="readingImage" Width="1335" Height="777"  >
+            </Image>
+            <Button Canvas.Right="0"  Click="Button_Click" IsManipulationEnabled="True">
+                <Button.Template>
+                    <ControlTemplate TargetType="{x:Type Button}">
+
+                        <TextBlock Foreground="White" Text="X" FontSize="40" Background="#11000000" Padding="10,10,50,50"/>
+                    </ControlTemplate>
+                </Button.Template>
+            </Button>
+        </Canvas>
     </Grid>
 </UserControl>

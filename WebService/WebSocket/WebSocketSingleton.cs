@@ -17,6 +17,7 @@ public enum MEMBERType
     MEMBRECOMM = 7,//推荐用药数据
     MEMBCART = 8,//药品购物车
     MEMBPLAN = 9,//会员用药计划
+    MEMBCLOSE = 10,
     MEMERROR = 999,
 }
 
@@ -256,6 +257,7 @@ namespace WebService
                 case MEMBERType.MEMBRECOMM:
                     {//推荐用药数据
                         //pageType = typeof(RecomMed);
+
                     }
                     break;
                 case MEMBERType.MEMBCART:

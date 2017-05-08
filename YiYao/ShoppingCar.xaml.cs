@@ -29,6 +29,10 @@ namespace YiYao
         public ShoppingCar()
         {
             InitializeComponent();
+            scrollviewer.ManipulationBoundaryFeedback += (s, e) =>
+             {
+                 e.Handled = true;
+             };
         }
         public void Start(object args)
         {
@@ -56,6 +60,8 @@ namespace YiYao
             Console.WriteLine("data shopping card ======== OK ");
 
             reciveDTO = (MTMShopCarDTO)data;
+
+            mycontrol.Items.Refresh();
         }
         private void jiantou1_png_MouseDown(object sender, MouseButtonEventArgs e)
         {

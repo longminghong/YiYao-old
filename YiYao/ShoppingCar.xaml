@@ -53,36 +53,51 @@
         <Image Margin="600.4,565.2,913.6,367.8" Source="药物文字背景.png" Stretch="Fill"/>-->
 
 
-        <ItemsControl x:Name="mycontrol" Height="600" Margin="560,240,380,240" > 
-            <ItemsControl.ItemsPanel>
-                <ItemsPanelTemplate>
-                    <WrapPanel />
-                </ItemsPanelTemplate>
-            </ItemsControl.ItemsPanel>
-            <ItemsControl.ItemTemplate>
-                <DataTemplate>
-                    <Grid Background="Transparent" Width="450" Height="180" HorizontalAlignment="Left" VerticalAlignment="Center">
-                        <Image HorizontalAlignment="Left" Width="180" Height="180" Source="药物背景-圆.png" Margin="0,15"/>
-                        <Image HorizontalAlignment="Right" Stretch="Fill" Width="329.9"   Source="药物文字背景.png" Margin="0,15,10,32.4" />
-                        <Image HorizontalAlignment="Left" Width="65.8" Height="Auto" Source="1.png" Margin="54.3,76.2,0,54.45" />
-                        <TextBlock HorizontalAlignment="Left" Foreground="White" Height="16.8" Margin="185,30.3,0,0" TextWrapping="Wrap" Text="{Binding _class}" VerticalAlignment="Top" Width="100"/>
-                        
-                        <!--<TextBlock HorizontalAlignment="Left" Foreground="White" Height="16.8" Margin="305,30.3,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="100"><Run Text="小"/><Run Text="类："/></TextBlock>-->
-                        
-                        <TextBlock HorizontalAlignment="Left" Foreground="White" Height="16.8" Margin="185,51,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="100" Text="{Binding name}"><LineBreak/><Run/><Run Text="："/></TextBlock>
-                        <TextBlock HorizontalAlignment="Left" Foreground="White" Height="16.8" Margin="185,70.8,0,0" TextWrapping="Wrap" Text="{Binding common_name}" VerticalAlignment="Top" Width="100"/>
-                        <TextBlock HorizontalAlignment="Left" Foreground="White" Height="16.8" Margin="185,90.6,0,0" TextWrapping="Wrap" Text="{Binding specification}" VerticalAlignment="Top" Width="100"/>
-                        <TextBlock HorizontalAlignment="Left" Foreground="White" Height="16.8" Margin="305,90.6,0,0" TextWrapping="Wrap" Text="{Binding retail_price}" VerticalAlignment="Top" Width="100"/>
-                        <!--<TextBlock HorizontalAlignment="Left" Foreground="White" Height="16.8" Margin="185,112.463,0,0" TextWrapping="Wrap" Text="总价：" VerticalAlignment="Top" Width="100"/>-->
+        <ScrollViewer x:Name="scrollviewer" Margin="560,240,380,240" MaxHeight="580
+                      
+                      " PanningMode="VerticalOnly" VerticalScrollBarVisibility="Hidden" CanContentScroll="True" >
+            <ItemsControl x:Name="mycontrol"> 
+                <ItemsControl.ItemsPanel>
+                    <ItemsPanelTemplate>
+                        <WrapPanel />
+                    </ItemsPanelTemplate>
+                </ItemsControl.ItemsPanel>
+                <ItemsControl.ItemTemplate>
+                    <DataTemplate>
+                        <Grid Background="Transparent" Width="450" Height="180" HorizontalAlignment="Left" VerticalAlignment="Center">
+                            <Image HorizontalAlignment="Left" Width="180" Height="180" Source="药物背景-圆.png" Margin="-10,37.05,0,-37.05"/>
+                            <Image HorizontalAlignment="Right" Stretch="Fill" Width="329.9"   Source="药物文字背景.png" Margin="0,15,10,22" />
+                            <Image HorizontalAlignment="Left" Width="65.8" Height="Auto" Source="1.png" Margin="44.3,98.25,0,32.4" />
+                            <TextBlock HorizontalAlignment="Left" Foreground="White" Height="16.8" Margin="185,30.3,0,0" TextWrapping="Wrap" Text="分类：" VerticalAlignment="Top" Width="48"/>
+                            <TextBlock HorizontalAlignment="Left" Foreground="White" Height="16.8" Margin="225,30.3,0,0" TextWrapping="Wrap" Text="{Binding class}" VerticalAlignment="Top" Width="48"/>
+                            <!--<TextBlock HorizontalAlignment="Left" Foreground="White" Height="16.8" Margin="305,30.3,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="100"><Run Text="小"/><Run Text="类："/></TextBlock>-->
 
-                    </Grid>
-                </DataTemplate>
-            </ItemsControl.ItemTemplate>
+                            <TextBlock HorizontalAlignment="Left" Foreground="White" Height="16.8" Margin="232.2,54,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="100" Text="{Binding name}"><LineBreak/><Run/><Run Text="："/></TextBlock>
+                            <TextBlock HorizontalAlignment="Left" Foreground="White" Height="16.8" Margin="233,73.8,0,0" TextWrapping="Wrap" Text="{Binding common_name}" VerticalAlignment="Top" Width="100"/>
+                            <TextBlock HorizontalAlignment="Left" Foreground="White" Height="16.8" Margin="233,92.6,0,0" TextWrapping="Wrap" Text="{Binding specification}" VerticalAlignment="Top" Width="100"/>
+                            <!--<TextBlock HorizontalAlignment="Left" Foreground="White" Height="16.8" Margin="305,90.6,0,0" TextWrapping="Wrap" Text="{Binding retail_price}" VerticalAlignment="Top" Width="100"/>-->
+                            <TextBlock HorizontalAlignment="Left" Foreground="White" Height="16.8" Margin="247.4,30.3,0,0" TextWrapping="Wrap" Text="{Binding _class}" VerticalAlignment="Top" Width="100"/>
+                            <TextBlock HorizontalAlignment="Left" Foreground="White" Height="16.8" Margin="185,54,0,0" TextWrapping="Wrap" Text="药品名：" VerticalAlignment="Top" Width="48"/>
+                            <TextBlock HorizontalAlignment="Left" Foreground="White" Height="16.8" Margin="185,73.8,0,0" TextWrapping="Wrap" Text="通用名：" VerticalAlignment="Top" Width="48"/>
+                            <TextBlock HorizontalAlignment="Left" Foreground="White" Height="16.8" Margin="185,92.6,0,0" TextWrapping="Wrap" Text="规格：" VerticalAlignment="Top" Width="48"/>
+                            <TextBlock HorizontalAlignment="Left" Foreground="White" Height="16.8" Margin="233,109.4,0,0" TextWrapping="Wrap" Text="{Binding number}" VerticalAlignment="Top" Width="60"/>
+                            <TextBlock HorizontalAlignment="Left" Foreground="White" Height="16.8" Margin="185,109.4,0,0" TextWrapping="Wrap" Text="数量：" VerticalAlignment="Top" Width="48"/>
+                            <TextBlock HorizontalAlignment="Left" Foreground="White" Height="16.8" Margin="353,109.4,0,0" TextWrapping="Wrap" Text="{Binding retail_price}" VerticalAlignment="Top" Width="60"/>
+                            <TextBlock HorizontalAlignment="Left" Foreground="White" Height="16.8" Margin="305,109.4,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="48"><Run Text="单价"/><Run Text="："/></TextBlock>
+                            <TextBlock HorizontalAlignment="Left" Foreground="White" Height="16.8" Margin="185,126.2,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="48"><Run Text="总价"/><Run Text="："/></TextBlock>
+                            <TextBlock HorizontalAlignment="Left" Foreground="White" Height="16.8" Margin="232.2,126.2,0,0" TextWrapping="Wrap" Text="-" VerticalAlignment="Top" Width="60"/>
+                            <!--<TextBlock HorizontalAlignment="Left" Foreground="White" Height="16.8" Margin="185,112.463,0,0" TextWrapping="Wrap" Text="总价：" VerticalAlignment="Top" Width="100"/>-->
 
-        </ItemsControl>
+                        </Grid>
+                    </DataTemplate>
+                </ItemsControl.ItemTemplate>
+
+            </ItemsControl>
+        </ScrollViewer>
+        
 
         <TextBlock HorizontalAlignment="Left" Height="45.625" Margin="90.6,114.637,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="384" Foreground="#FF42918A" FontSize="36" Text="购物车"/>
-        <Image x:Name="jiantou1_png" HorizontalAlignment="Right" Height="76" Margin="0,0,55,484" Source="Images/Login/jiantou1.png" Stretch="Fill" VerticalAlignment="Bottom" Width="40" RenderTransformOrigin="0.5,0.5" MouseDown="jiantou1_png_MouseDown">
+        <Image Visibility="Hidden" x:Name="jiantou1_png" HorizontalAlignment="Right" Height="76" Margin="0,0,55,484" Source="Images/Login/jiantou1.png" Stretch="Fill" VerticalAlignment="Bottom" Width="40" RenderTransformOrigin="0.5,0.5" MouseDown="jiantou1_png_MouseDown">
             <Image.RenderTransform>
                 <TransformGroup>
                     <ScaleTransform/>

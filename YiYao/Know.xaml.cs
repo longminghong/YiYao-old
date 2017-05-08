@@ -25,6 +25,7 @@ namespace YiYao
         Storyboard s1;
         Storyboard s2;
         Image currentXian = null;
+        private string currentDisease;
         
         public Know()
         {
@@ -35,11 +36,7 @@ namespace YiYao
 
                  var xyknow = new XYKnowldge();
               //   root.Children.Add(xyknow);
-                 Window.GetWindow(this).KeyDown += (ss, ee) =>
-                 {
-                     Canvas.SetLeft(xyknow.k1, GVar.x);
-                     Canvas.SetTop(xyknow.k1, GVar.y);
-                 };
+              
              };
         }
 
@@ -54,6 +51,7 @@ namespace YiYao
 
                  pop.Children.Clear();
                  var xyknow = new XYKnowldge();
+                 xyknow.LoadDiasses(currentDisease);
                  pop.Children.Add(xyknow);
                  s2.Duration = TimeSpan.FromMilliseconds(0);
              };
@@ -66,12 +64,14 @@ namespace YiYao
         private void dian_png_Click(object sender, RoutedEventArgs e)
         {
             currentXian = dnxian;
+            currentDisease = "DN";
             s2.Begin();
         }
 
         private void xzbutton_Click(object sender, RoutedEventArgs e)
         {
             currentXian = xzxian;
+            currentDisease = "XZ";
             s2.Begin();
 
         }
@@ -79,6 +79,7 @@ namespace YiYao
         private void xgbutton_Click(object sender, RoutedEventArgs e)
         {
             currentXian = xgxian;
+            currentDisease = "XG";
             s2.Begin();
            
         }
@@ -86,6 +87,7 @@ namespace YiYao
         private void szbutton_Click(object sender, RoutedEventArgs e)
         {
             currentXian = szxian;
+            currentDisease = "SZ";
             s2.Begin();
         }
 

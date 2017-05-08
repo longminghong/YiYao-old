@@ -4,6 +4,7 @@
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
              xmlns:local="clr-namespace:YiYao"
+             xmlns:s="http://schemas.microsoft.com/surface/2008"
              mc:Ignorable="d" 
              d:DesignHeight="300" d:DesignWidth="300" Width="1920" Height="1080">
     <UserControl.Resources>
@@ -1097,11 +1098,12 @@
                 </TransformGroup>
             </Image.RenderTransform>
         </Image>
-        <Button x:Name="PC_Register" Height="100" Width="249.2" HorizontalAlignment="Right" Foreground="#FFF4ADAD" Margin="0,490" FontSize="24" Click="PC_Register_Click" >
+        <Button x:Name="PC_Register" Height="100" Width="249.2" HorizontalAlignment="Right" Foreground="#FFF4ADAD" Margin="0,490" FontSize="24" Click="PC_Register_Click" Visibility="Hidden" >
             <Button.Background>
                 <SolidColorBrush Color="#FFDDDDDD" Opacity="0"/>
             </Button.Background>
             药师PC注册用户展示
         </Button>
+       
     </Grid>
 </UserControl>

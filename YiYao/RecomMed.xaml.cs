@@ -34,7 +34,24 @@ namespace YiYao
             this.add_west_chinese_images();
             this.add_west_HCP_images();
             this.add_west_med_images();
+            xiyao.ManipulationBoundaryFeedback += (s, e) =>
+            {
+                e.Handled = true;
+            };
+            zhongyao.ManipulationBoundaryFeedback += (s, e) =>
+            {
+                e.Handled = true;
+            };
+            baojian.ManipulationBoundaryFeedback += (s, e) =>
+            {
+                e.Handled = true;
+            };
+            baojian.ItemsSource = new string[] { "1.png", "2.png", "3.png", "4.png",  "1.png", "2.png", "3.png" };
+            zhongyao.ItemsSource = new string[] { "1.png", "2.png", "3.png", "4.png", "1.png", "2.png", "3.png" };
+            xiyao.ItemsSource = new string[] { "1.png", "2.png", "3.png", "4.png", "1.png", "2.png", "3.png" };
+
         }
+
 
         public void Start(object args)
         {

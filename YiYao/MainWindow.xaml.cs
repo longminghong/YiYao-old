@@ -125,6 +125,7 @@ namespace YiYao
     
         private void MainWindow_Loaded(object sender, RoutedEventArgs e)
         {
+            //root.GoToPage(typeof(Dashboard));
             root.GoToPage(typeof(Login));
         }
 
