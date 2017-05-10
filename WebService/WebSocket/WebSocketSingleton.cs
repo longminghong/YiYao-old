@@ -129,7 +129,8 @@ namespace WebService
         {
             Console.WriteLine("connect closed");
         }
-
+        const String radisTopic = "MTM_WEB_TEST/Vk7Tc-PJx";
+        const String oldTopic = "MTM_WEB_TEST/pypub";
         public void start()
         {
             Console.WriteLine("web socket run.");
@@ -139,7 +140,7 @@ namespace WebService
             string user = "LTAIyNRr5QPLury7";
             string pwd = "fxKK7bAPc7J15qwQ/YoNocsGBso=";
             string clientid = "GID_MTM_WEB_TEST_MQTT@@@NEWDAY";//Guid.NewGuid().ToString(); // 获取一个独一无二的id
-            string[] topic = new string[] { "MTM_WEB_TEST/pypub" };
+            string[] topic = new string[] { radisTopic };
 
             byte[] qosLevels = new byte[] { MqttMsgBase.QOS_LEVEL_AT_LEAST_ONCE }; // qos=1
 
